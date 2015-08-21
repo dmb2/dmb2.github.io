@@ -1,234 +1,292 @@
+/* Hacked from https://github.com/daveliepmann/tufte-css
+ The MIT License (MIT)
+Copyright (c) 2014 Dave Liepmann
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 
-/* === === === === === === === === === === === === === === === === ===
-
-   Hacked from: texinfo-bright-colors.css (http://hollmen.net/texinfo/texinfo-bright-colors.css)
-   Version:   1.0
-   Date:      Thursday, September 04th, 2014
-   Author:    David Bjergaard dbjergaard@gmail.com
-
-
-   --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-
-   (c) Copyright, David Bjergaard
-       September, 2014
-
-   The current file is free software: you can redistribute it and/or
-   modify it under the terms of the GNU General Public License as
-   published by the Free Software Foundation, either version 3 of the
-   License, or (at your option) any later version.
-
-   The current file is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
-
-   === === === === === === === === === === === === === === === === */
 @font-face {
-    font-family: 'crimson';
-    src: url('./font/crimson-bold-webfont.eot');
-    src: url('./font/crimson-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./font/crimson-bold-webfont.woff') format('woff'),
-         url('./font/crimson-bold-webfont.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'crimson';
-    src: url('./font/crimson-bolditalic-webfont.eot');
-    src: url('./font/crimson-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./font/crimson-bolditalic-webfont.woff') format('woff'),
-         url('./font/crimson-bolditalic-webfont.ttf') format('truetype');
+    font-family: 'charter';
+    src: url('font/charter_bold_italic-webfont.eot');
+    src: url('font/charter_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/charter_bold_italic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 
 }
 @font-face {
-    font-family: 'crimson';
-    src: url('./font/crimson-italic-webfont.eot');
-    src: url('./font/crimson-italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./font/crimson-italic-webfont.woff') format('woff'),
-         url('./font/crimson-italic-webfont.ttf') format('truetype');
+    font-family: 'charter';
+    src: url('font/charter_bold-webfont.eot');
+    src: url('font/charter_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/charter_bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'charter';
+    src: url('font/charter_italic-webfont.eot');
+    src: url('font/charter_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/charter_italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 
 }
 @font-face {
-    font-family: 'crimson';
-    src: url('./font/crimson-roman-webfont.eot');
-    src: url('./font/crimson-roman-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./font/crimson-roman-webfont.woff') format('woff'),
-         url('./font/crimson-roman-webfont.ttf') format('truetype');
+    font-family: 'charter';
+    src: url('font/charter_regular-webfont.eot');
+    src: url('font/charter_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/charter_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'crimson';
-    src: url('./font/crimson-semibold-webfont.eot');
-    src: url('./font/crimson-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./font/crimson-semibold-webfont.woff') format('woff'),
-         url('./font/crimson-semibold-webfont.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'crimson';
-    src: url('./font/crimson-semibolditalic-webfont.eot');
-    src: url('./font/crimson-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./font/crimson-semibolditalic-webfont.woff') format('woff'),
-         url('./font/crimson-semibolditalic-webfont.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-
-}
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
-@import url(http://fonts.googleapis.com/css?family=Alegreya+SC);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
-@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600);
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Source Sans Pro', sans-serif;
-}
+html { font-size: 15px; }
 
-h1.chapter{
-    font-weight: 400;
-}
-h1.settitle{
-    font-weight: 400;
-}
-pre.menu-comment{
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
-    font-size: 18pt;
-}
+body { width: 87.5%;
+       margin-left: auto;
+       margin-right: auto;
+       padding-left: 12.5%;
+       font-family: ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       background-color: #fffff8;
+       color: #111;
+       max-width: 1400px;
+       counter-reset: sidenote-counter; }
 
-h2.section{
-    font-weight: 400;
-}
-h3.subsection{
-    font-weight: 400;
-}
-a {
-    /* font-family: 'Source Sans Pro',sans-serif; */
-    /* text-decoration: underline; */
-    color: #000080;
-}
-/* a:hover{ */
-/*     background: #D0D0D0; */
-/* } */
+h1 { font-weight: 400;
+     margin-top: 4rem;
+     margin-bottom: 1.5rem;
+     font-size: 3.2rem;
+     line-height: 1; }
 
-a:visited{
-    color: #68228b;
-}
+h2 { font-style: italic;
+     font-weight: 400;
+     margin-top: 2.1rem;
+     margin-bottom: 0;
+     font-size: 2.2rem;
+     line-height: 1; }
 
-b {
-    font-weight: 600;
-}
-body
-{
-    font-family: 'crimson', serif;
-    -moz-font-feature-settings: "liga", "calt", "xtex";
-    -webkit-font-feature-settings: "liga", "calt", "xtex";
-    -ms-font-feature-settings: "liga", "xtex";
-    -o-font-feature-settings: "liga", "xtex";
-    font-feature-settings: "liga", "xtex";
-    font-size: 15pt;
-    clear: center;
-    max-width: 30em;
-    line-height: 1.35;
-    text-align: justify;
-    padding: 50px;
-    margin: 0 auto;
-    background-size: 15%;
-    background-image: url("./images/lisp-lizard.png");
-    background-position: right bottom;
-    background-repeat: no-repeat;
-}
+h3 { font-style: italic;
+     font-weight: 400;
+     font-size: 1.7rem;
+     margin-top: 2rem;
+     margin-bottom: 0;
+     line-height: 1; }
 
-h1 {
-  font-size: 1.5em;
-}
-h2 {
-  font-size: 1.1em;
-}
-h3 {
-  font-size: 1.1em;
-}
-h4 {
-  font-size: 1.0em;
-}
-h5 {
-  font-size: 0.9em;
-}
-h6 {
-  font-size: 0.8em;
-}
+p.subtitle { font-style: italic;
+             margin-top: 1rem;
+             margin-bottom: 1rem;
+             font-size: 1.8rem;
+             display: block;
+             line-height: 1; }
 
-p {
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto;
-}
-u {
-text-decoration:none;
-}
-blockquote {
-  /* background-color: #FFCCFF; */
-}
+table { width: 98%;
+        text-align: right;
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin: 1.4rem 1%;
+        border-collapse: separate;
+        border-spacing: 0 5px;
+        -webkit-font-feature-settings: 'tnum'; /* This is technically redundant */
+        -moz-font-feature-settings: 'tnum';
+        -ms-font-feature-settings: 'tnum'; }
 
-ul { 
-  /* background-color: #FF9900;  */
-} 
+thead th { border-bottom: 1px solid #AAAAAA;
+           font-weight: 400;
+           border-collapse: separate;
+           border-spacing: 5px 5px; }
 
-ol { 
-  /* background-color: #CCFF33;  */
-}
-table{
-    border-style: hidden;
-}
+td.text { text-align: left; }
 
-th{
-    border-collapse: collapse;
-    text-align: left;
-    border-style: hidden;
-}
+span.table-label { padding-top: 8px; } /* to maintain height relative to table header row */
 
-tbody{
-	font-family: 'Source Sans Pro';
-	font-size: 18px;
-	background: #fff;
-	border-collapse: collapse;
-	text-align: left;
-        border-style: hidden;
-}
+table.booktabs { width: auto;
+                 margin: 0 auto;
+                 border-spacing: 0px;
+                 border-top: 2px solid #333333;
+                 border-bottom: 2px solid #333333; }
 
-tr {
-    border-style: hidden;
-}
+.booktabs th { border-bottom: 1px solid #333333;
+               padding: 0.65ex 0.5em 0.4ex 0.5em;
+               font-weight: normal;
+               text-align: center; }
 
-td {
-    border-style: hidden;
-}
+.booktabs th.cmid { border-bottom: 1px solid #666666; }
 
-pre,code,example,tt,verbatim,samp,kbd {
-  font-family: 'Inconsolata', sans-serif;
-}
+.booktabs th.nocmid { border-bottom: none; }
 
-kbd{
-    font-size: 1.10em;
-}
+.booktabs tbody tr:first-child td { padding-top: 0.65ex; } /* add space between thead row and tbody */ 
 
-hr { 
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
-    background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
-    background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
-    background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
-}
+.booktabs td { padding-left: 0.5em;
+               padding-right: 0.5em;
+               text-align: left; }
+
+.booktabs caption { font-size: 90%;
+                    text-align: left;
+                    width: auto;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 1ex;
+                    caption-side: top; }
+
+.booktabs tbody tr td.l { text-align: left !important; }
+.booktabs tbody tr td.c { text-align: center !important; }
+.booktabs tbody tr td.r { text-align: right !important; }
+
+article { position: relative;
+          padding: 5rem 0rem; }
+
+section { padding-top: 1rem;
+          padding-bottom: 1rem; }
+
+p, ol, ul { font-size: 1.4rem; }
+
+p { line-height: 2rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline; }
+
+blockquote p { font-size: 1.1rem;
+               width: 50%; }
+
+blockquote footer { width: 50%;
+                    text-align: right; }
+
+ul { list-style-type: none; }
+
+li { padding: 0.5rem 0; }
+
+figure { max-width: 55%;
+         -webkit-margin-start: 0;
+         -webkit-margin-end: 0;
+         margin-bottom: 3em; }
+
+figcaption { float: right;
+             clear: right;
+             margin-right: -48%;
+             margin-top: 0;
+             margin-bottom: 0;
+             font-size: 1.0rem;
+             line-height: 1.6;
+             vertical-align: baseline;
+             position: relative; }
+
+figure.fullwidth figcaption { margin-right: 24%; }
+
+a { color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid #777;
+    padding-bottom: 1px; }
+
+img { max-width: 100%; }
+
+.sidenote, .marginnote { float:right;
+                         clear: right;
+                         margin-right: -60%;
+                         width: 50%;
+                         margin-top: 0;
+                         margin-bottom: 0;
+                         font-size: 1.0rem;
+                         line-height: 1.6;
+                         vertical-align: baseline;
+                         position: relative; }
+
+.table-caption { float:right;
+                 clear:right;
+                 margin-right: -60%;
+                 width: 50%;
+                 margin-top: 0;
+                 margin-bottom: 0;
+                 font-size: 1.0rem;
+                 line-height: 1.6; }
+
+.sidenote-number { counter-increment: sidenote-counter; }
+
+.sidenote-number:after, .sidenote:before { content: counter(sidenote-counter) " ";
+                                           position: relative;
+                                           vertical-align: baseline;
+                                           color: #f00000; }
+
+.sidenote-number:after { content: counter(sidenote-counter); 
+                         font-size: 0.9rem;
+                         top: -0.5rem;
+                         left: 0.1rem; }
+
+.sidenote:before { content: counter(sidenote-counter) ". ";
+                   position: absolute;
+                   /* 100% refers to the computed width of the number, so this transform
+                    * shifts the number just outside the left edge of the sidenote box,
+                    * with a buffer of 0.25rem, no matter how many digits the number has. */
+                   -webkit-transform: translateX(-100%) translateX(-0.25rem);
+                   -ms-transform: translateX(-100%) translateX(-0.25rem);
+                   transform: translateX(-100%) translateX(-0.25rem); }
+
+p, footer, pre.code, div.table-wrapper { width: 55%; }
+
+@media screen and (max-width: 760px) { p, footer, pre.code { width: 90%; }
+                                       figure { max-width: 90%; }
+                                       blockquote p, blockquote footer { width: 90%; }}
+
+.sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
+
+.code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 1.125rem;
+        line-height: 1.6; }
+
+h1 .code, h2 .code, h3 .code { font-size: 0.80em; }
+
+.marginnote .code, .sidenote .code { font-size: 1rem; }
+
+pre.code { padding: 0 0 0 2em;
+           overflow-x: scroll; }
+
+.fullwidth { max-width: 95%; }
+
+span.newthought { font-variant: small-caps;
+                  font-size: 1.2em; }
+
+input.margin-toggle { display: none; }
+
+label.sidenote-number { display: inline; }
+
+label.margin-toggle:not(.sidenote-number) { display: none; }
+
+@media(max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; }
+                           .sidenote, .marginnote { display: none; }
+                           .margin-toggle:checked + .sidenote, 
+                           .margin-toggle:checked + .marginnote { display: block;
+                                                                  float: left;
+                                                                  left: 1rem;
+                                                                  clear: both;
+                                                                  width: 95%;
+                                                                  margin: 1rem 2.5%;
+                                                                  vertical-align: baseline;
+                                                                  position: relative; }
+                           label { cursor: pointer; }
+                           pre.code { padding: 0; }
+                           .table-caption { display: block;
+                                            float: right;
+                                            clear: both;
+                                            width: 98%;
+                                            margin-top: 1rem;
+                                            margin-bottom: 0.5rem;
+                                            margin-left: 1%;
+                                            margin-right: 1%;
+                                            vertical-align: baseline;
+                                            position: relative; }
+                           table, table.booktabs { width: 85%; }
+                           img { width: 100%; } }

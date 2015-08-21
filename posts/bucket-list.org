@@ -1,5 +1,7 @@
 #+include: frontmatter.org org
 #+TITLE: Programming Bucket List
+/Posted <2015-04-16 Thu>/
+
 My programming bucket list.  If I start or finish a project I'll
 update it here.
 ** Bucket List
@@ -8,9 +10,9 @@ update it here.
 - Simulate water in a glass/tank (bonus points if I use the ray tracer
   above)
 - Write/Submit code to the IOCCC (even if they stop doing them :))
-- Finish the Matasano cryptopals exercises [1/6]
+- Finish the Matasano cryptopals exercises [2/6]
   - [X] Set 1
-  - [ ] Set 2
+  - [X] Set 2
   - [ ] Set 3
   - [ ] Set 4
   - [ ] Set 5

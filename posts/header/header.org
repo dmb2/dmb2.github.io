@@ -1,0 +1,3 @@
+|------+-------+---------+-------|
+| [[file:~/dbjergaard.github.io/index.org][Home]] | [[file:~/dbjergaard.github.io/about.org][About]] | [[file:~/dbjergaard.github.io/gallery.org][Gallery]] | [[file:~/dbjergaard.github.io/links.org][Links]] |
+|------+-------+---------+-------|

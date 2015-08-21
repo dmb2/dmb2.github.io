@@ -1,0 +1,189 @@
+
+/* === === === === === === === === === === === === === === === === ===
+
+   Hacked from: texinfo-bright-colors.css (http://hollmen.net/texinfo/texinfo-bright-colors.css)
+   Version:   1.0
+   Date:      Thursday, September 04th, 2014
+   Author:    David Bjergaard dbjergaard@gmail.com
+
+
+   --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+
+   (c) Copyright, David Bjergaard
+       September, 2014
+
+   The current file is free software: you can redistribute it and/or
+   modify it under the terms of the GNU General Public License as
+   published by the Free Software Foundation, either version 3 of the
+   License, or (at your option) any later version.
+
+   The current file is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   General Public License for more details.
+
+   === === === === === === === === === === === === === === === === */
+/*
+amber
+bg:272727
+bg:08080a
+bold:faf161
+regular:efc51f
+fg:f8da0a
+green:
+bold:95ffba
+regular:42dca8
+fg:45d98b
+
+
+  */     
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inconsolata', sans-serif;
+}
+
+h1.chapter{
+    font-weight: 400;
+}
+h1.settitle{
+    font-weight: 400;
+}
+pre.menu-comment{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 18pt;
+}
+
+h2.section{
+    font-weight: 400;
+}
+h3.subsection{
+    font-weight: 400;
+}
+a {
+    /* font-family: 'Source Sans Pro',sans-serif; */
+    /* text-decoration: underline; */
+    color: #95ffba;
+}
+a:hover{
+    text-shadow: 1px 0px 10px #45d98b;
+    -webkit-transition: 1s linear 0s;
+    -moz-transition: 1s linear 0s;
+    -o-transition: 1s linear 0s;
+    transition: 1s linear 0s;
+    outline: 0 none;
+}
+
+a:visited{
+    color: #45d98b;
+}
+
+b {
+    font-weight: 600;
+}
+body
+{
+    font-family: 'Inconsolata', serif;
+    font-size: 15pt;
+    clear: center;
+    max-width: 30em;
+    line-height: 1.35;
+    text-align: left;
+    padding: 50px;
+    margin: 0 auto;
+    color:#42dca8;
+    background: radial-gradient(circle, #202020, #191919);
+    /* background-color:; */
+    text-shadow: 1px 0px 1px #45d98b;
+    -webkit-transition: 1s linear 0s;
+    -moz-transition: 1s linear 0s;
+    -o-transition: 1s linear 0s;
+    transition: 1s linear 0s;
+    outline: 0 none;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.1em;
+}
+h3 {
+  font-size: 1.1em;
+}
+h4 {
+  font-size: 1.0em;
+}
+h5 {
+  font-size: 0.9em;
+}
+h6 {
+  font-size: 0.8em;
+}
+
+p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+u {
+text-decoration:none;
+}
+blockquote {
+  /* background-color: #FFCCFF; */
+}
+
+ul { 
+  /* background-color: #FF9900;  */
+} 
+
+ol { 
+  /* background-color: #CCFF33;  */
+}
+table{
+    border-style: hidden;
+}
+
+th{
+    border-collapse: collapse;
+    text-align: left;
+    border-style: hidden;
+}
+
+tbody{
+	font-family: 'Source Sans Pro';
+	font-size: 18px;
+	background: #fff;
+	border-collapse: collapse;
+	text-align: left;
+        border-style: hidden;
+}
+
+tr {
+    border-style: hidden;
+}
+
+td {
+    border-style: hidden;
+}
+
+pre,code,example,tt,verbatim,samp,kbd {
+  font-family: 'Inconsolata', sans-serif;
+}
+
+kbd{
+    font-size: 1.10em;
+}
+
+hr { 
+    border: 0;
+    height: 1px;
+    background: #333;
+}

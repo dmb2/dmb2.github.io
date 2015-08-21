@@ -1,4 +1,4 @@
-#+TITLE: Down the Rabbit Hole
+#+TITLE: 
 #+AUTHOR:    David Bjergaard
 #+EMAIL:     dbjergaard@gmail.com
 #+LANGUAGE:  en
