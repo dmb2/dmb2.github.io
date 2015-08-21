@@ -1,0 +1,3 @@
+#+INCLUDE: frontmatter.org org
+#+TITLE: Dave's Snaps
+Eventually this will contain some of my favorite photos.
