@@ -2,7 +2,7 @@
 #+TITLE: Untempering the Mersenne Twister RNG
 #+HTML_MATHJAX: align:"center" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
 - Started writing: <2015-08-25 Tue>
-- Posted: 
+- Posted: <2015-08-26 Wed>
 - Estimated time to read: 15 min
 
 I've been working on the [[http://cryptopals.com][Matasano Crypto Challenges]]. They are worth an

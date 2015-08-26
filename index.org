@@ -1,5 +1,6 @@
 #+TITLE: A poor man's blog
 #+INCLUDE: frontmatter.org
 * Random Ramblings
-- [[file:posts/bucket-list.org][Programming Bucket List]]
+- [[file:posts/untempering_mersenne_twister.org][Untempering the Mersenne Twister]]
 - [[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
+- [[file:posts/bucket-list.org][Programming Bucket List]]
