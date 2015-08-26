@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Untempering the Mersenne Twister RNG</title>
+<!-- 08/26/2015 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Bjergaard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Untempering the Mersenne Twister RNG</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><a href="../index.html">Home</a></td>
+<td class="left"><a href="../about.html">About</a></td>
+<td class="left"><a href="../gallery.html">Gallery</a></td>
+<td class="left"><a href="../links.html">Links</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>Started writing: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-25 Tue&gt;</span></span>
+</li>
+<li>Posted: 
+</li>
+<li>Estimated time to read: 15 min
+</li>
+</ul>
+
+<p>
+I've been working on the <a href="http://cryptopals.com">Matasano Crypto Challenges</a>. They are worth an
+article on their own.  You learn crypto as deployed in web
+applications. They teach you crypto systems by
+breaking them.  This is an excellent way to learn crypto.  It
+teaches you to assess systems based on potential weaknesses rather
+than their abstract properties.
+</p>
+
+<p>
+A crypto implementation is usually built out of smaller units called
+crypto primitives.  It is important that these smaller units be secure
+against leaking information.  If not the integrity of the entire
+system is compromised.  An important cryptographic primative is the
+pseudo-random number generator (PRNG)<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>. So far in the challenges
+everything has been straightforward<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup><sup>, </sup><sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>. Cryptographically
+secure PRNGs (CSPRNGs) exist, programmers may not realize that they
+should use them.  Instead they reach for their language's native PRNG.
+</p>
+
+<p>
+Probably this is the  <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister PRNG</a>, based on a Mersenne prime number.  I still haven't grokked
+why this is important to the algorithm. I do know that it makes
+the period of the PRNG (the amount of time before the PRNG repeats an
+output) huge (~10<sup>6000</sup>).  The algorithm is explained
+in technical detail on the wikipedia page linked above.  What interests me the most is the
+final step of the algorithm.  This is the "tempering step"
+when the state array output is transformed. Reversing the tempering step is <a href="https://jazzy.id.au/2010/09/22/cracking_random_number_generators_part_3.html">covered in</a> many places
+as <a href="https://stackoverflow.com/questions/16365125/what-makes-the-mersenne-twister-tempering-function-reversible">well</a>, and I have benefited from them all. The mathematical
+description of the algorithm calls for the tempering matrix to be
+invertible, meaning:
+$$
+x_{i} = T s_{i}
+$$
+$$
+s_{i} = T^{-1}x_{i}
+$$
+Where \(T\) is the tempering matrix and \(T^{-1}\) must exist.  On paper,
+it is possible to take an output from the Mersenne RNG and multiply
+the bit-vector by \(T^{-1}\). This recovers one of the internal states
+\(s_{i}\).  Repeat this 624 times and you have discovered the entire
+internal state of the RNG. You can now predict every future output of
+the RNG for all time.  If your crypto system is based on the Mersenne
+RNG once you've cloned it you can create the same stream of bytes.
+This may allow you to decrypt all future encrypted messages.
+</p>
+
+<p>
+I say on paper, because it turns out that inverting \(T\) as it is
+stated isn't as clear as inverting a matrix.  The <a href="https://en.wikipedia.org/wiki/Mersenne_Twister#Algorithmic_detail">algorithm specifies</a>
+\(T\) as:
+$$
+x := s\oplus ((s >> u) \otimes d)\\
+x := x\oplus ((x << s) \otimes b)\\
+x := x\oplus ((x << t) \otimes c)\\
+x := x\oplus ((x >> t))\\
+$$
+Where \(s\) is an input from the internal state, \(x\) is the final
+result, \(\oplus\) is addition mod 2 (bitwise xor), &gt;&gt; and &lt;&lt; are the
+right and left bitshift operators respectively, \(\otimes\) is multiplication
+mod 2 (bitwise and). Finally \(u\), \(d\), \(s\), \(b\), \(t\), and \(c\) are
+parameters for the tempering transform.  The specific values can be
+referenced on the wiki page or <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/CODES/mt19937ar.c">in the reference implementation
+provided by</a> the author of the algorithm.
+</p>
+
+<p>
+As attackers we're after the internal state of the RNG.  This means
+inverting the tempering transformation outlined above.  How can we do
+this? If we wanted we could construct a matrix representation of \(T\)
+and invert this matrix. This seems infeasible on the face of it. Let's instead look at some interesting properties of each
+transformation step. I don't know if this combination of operations
+has a name in the literature. I've taken to calling them diffuse
+operations.<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup> If you are trying to wrap your head around
+these transformations, I recommend playing with them on paper.
+</p>
+
+<p>
+Let's look at one in detail:
+$$ 
+x := x\oplus ((x >> a) \otimes b) 
+$$
+<a href="https://jazzy.id.au/2010/09/22/cracking_random_number_generators_part_3.html#comment-1547785947">A source of confusion</a> is the bitwise and since we think of this
+operation as "throwing away" information.  It seems that we're loosing
+information when a <code>0</code> in \(b\)'s bit vector is propagated through
+multiplication by (x &gt;&gt; a).  For the moment lets ignore this and set
+the \(b\) vector to all <code>1</code>'s (<code>0xFFFFFFFF</code> for a 32 bit Mersenne
+RNG). Let's also work with 8 bit numbers. You can write them on a
+sheet of paper without cramping your hand or making too many mistakes.
+</p>
+
+<p>
+In the following, \(|x|\) is the number of bits represented by \(x\) (32
+in the full case, 8 in our toy). First note that if \(a > |x|/2\) we
+have the following interesting property. Say \(a=5\), if we put each
+operation on its own row<sup><a id="fnr.5" name="fnr.5" class="footref" href="#fn.5">5</a></sup> we have:
+</p>
+<pre class="example">
+       x: 1  0  1  1  1  0  1  1 
+    x&gt;&gt;a: 0  0  0  0  0  1  0  1 
+x^(x&gt;&gt;a): 1  0  1  1  1  1  1  0
+</pre>
+<p>
+Notice that the first \(a=5\) bits of the output is the same as the
+input.  This is remarkable. It provides an immediate answer for how we
+recover the original \(x\), inverting the transformation:
+</p>
+<pre class="example">
+       x: 1  0  1  1  1  1  1  0 
+    x&gt;&gt;a: 0  0  0  0  0  1  0  1 
+x^(x&gt;&gt;a): 1  0  1  1  1  0  1  1
+</pre>
+<p>
+When we shift over 5 places, we put the same three bits in the lower
+part that we xor, this recovers the input.  Those zeros also mean that
+if you multiply by a mask the same pattern will hold:
+</p>
+<pre class="example">
+           x: 1  0  1  1  1  0  1  1 
+    (x&gt;&gt;a)&amp;b: 0  0  0  0  0  1  0  0 
+x^((x&gt;&gt;a)&amp;b): 1  0  1  1  1  1  1  1
+</pre>
+<p>
+We now know that the first \(a\) bits are untouched by this
+transformation.  This is the key to reversing it.  The left shift case
+is symmetric.  
+</p>
+
+<p>
+Let us now turn to the more complicated case when \(a < |x|/2\). In this
+case, when we go to recover the bits, some of the scrambled bits will
+be "in the way" and we may not get a clean recovery the way we do when
+\(a > |x|/2\).  How do we proceed? The answer is <a href="https://jazzy.id.au/2010/09/22/cracking_random_number_generators_part_3.html">buried in another blog</a>
+post on this topic.  If we mask out the bits that might interfere,
+recover those that we have originally, and then repeat sliding our
+mask over, we can recover the original integer.  Again ignoring \(b\)
+let's let \(a=3\) this time:
+</p>
+<pre class="example">
+       x: 1  0  1  1  1  0  1  1 
+    x&gt;&gt;a: 0  0  0  1  0  1  1  1
+x^(x&gt;&gt;a): 1  0  1  0  1  1  0  0
+</pre>
+<p>
+Note that we have the first three bits intact (<code>1 0 1</code>).  After
+shifting there will be two bits (<code>0 1</code>) that are not
+necessarily the same as the input. The trick is to mask them by
+multiplying by \(m=\) <code>0  0  0  1  1  1  0  0</code>, this looks like:
+</p>
+<pre class="example">
+           x: 1  0  1  0  1  1  0  0 
+        x&gt;&gt;a: 0  0  0  1  0  1  0  1
+           m: 0  0  0  1  1  1  0  0 
+    (x&gt;&gt;a)&amp;m: 0  0  0  1  0  1  0  0 
+x^((x&gt;&gt;a)&amp;m): 1  0  1  1  1  0  0  0
+</pre>
+<p>
+Now in the final line we've recovered the first 6 bits.  We have
+more than half the bits back, we can repeat the diffusion step
+and recover the whole thing.  
+</p>
+
+<p>
+Generalizing this to 32 bits is easy.  If \(a > 16\) then we only
+have to "turn the crank" once.  This is true for the last step of the
+tempering function.  If \(a < 16\), we apply the masking
+procedure until more than half the bits are recovered. Then we
+"turn the crank" one last time and recover the number.  
+</p>
+
+<p>
+There you have it, a prescription for undoing each step of the
+tempering function.  When implemented, you apply the
+inverse of each diffusion step in reverse order. This inverts the tempering of RNG output.  From here its a short step to getting the
+internal state of the RNG and thus break the whole thing wide open.
+</p>
+
+<p>
+There are some unanswered questions though. I suspect that the diffuse
+steps are cyclic, meaning that if you let:
+$$
+d(x,c,b) = x \oplus (x >> c) \otimes b
+$$
+and you repeatedly feed the output of one to the input of the next:
+$$
+d^{(n)}(x,c,b)=d(d^{(n-1)}(x,c,b),c,b)\\
+d^{0}(x,c,b)=d(x,c,b)
+$$
+then there exists a finite \(n\) such that
+$$
+x = d^{(n)}(x,c,b)
+$$
+If this is the case, then reversing the tempering is just a matter of
+figuring out how to derive \(n\) for values of \(c\) and \(b\). I suspect
+that the answer is independent of \(b\), but I haven't been able to get
+anywhere on actually constructing an argument that proves any real
+relationship.
+</p>
+
+<p>
+In closing, crypto is a lot of fun. The math involved while simple,
+has subtleties that are fun to play around with. I hope that if
+you are also wandering the path towards crypto enlightenment that you
+find this explanation useful.  If you have any comments, you can tweet
+me <a href="https://twitter.com/dbjergaard">@dbjergaard</a>.  
+</p>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+I pronounce it "pring", and the cryptographically-secure PRNG
+(CSPRNG) as "see-es-pring".  I don't know if this is wide spread as
+I've never had a verbal conversation about PRNGs with someone.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+Breaking the repeating key xor probably deserves its own article
+since its conceptually straight forward, but still manages to be
+tricky to get right
+</p></div>
+
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+The folks on #cryptopals in freenode have been extraordinarily helpful
+and are always patient with me when I'm trying to figure out how
+something works.  If you get stuck there are regulars there who have
+completed all of the exercises.  
+</p></div>
+
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
+Since the tempering step is meant to "diffuse" the state bits into
+the final output and are there to improve the statistical properties
+of the random numbers
+</p></div>
+
+<div class="footdef"><sup><a id="fn.5" name="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara">
+Remember, we set \(b:=\) <code>0xFFFFFFFF</code>, so the bitwise and step
+just "copies" the bits from \(x>>a\)
+</p></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

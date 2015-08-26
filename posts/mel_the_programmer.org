@@ -5,30 +5,29 @@
 - Estimated time to read: 5 min
 
 For the uninitiated "[[https://www.cs.utah.edu/~elb/folklore/mel.html][The Story of Mel]]" is a free verse poem (usenet,
-hacking) that describes a programmer so in tune with the hardware he
+hacking). It describes a programmer so in tune with the hardware he
 programs for that he writes directly in machine code.  No compiler
 necessary, language, what language? Just Op codes and registers.  I
-recently became acquainted with this piece of usenet folklore from a
-link to a blog [[http://jamesseibel.com/blog/?p%3D109][explaining how Mel pulled off his feats of grandeur]].  I
-don't want to repeat that here, rather I would like to highlight some
-issues with venerating programmers like Mel, and what lessons I think
-that Mel's story can teach us about modern programming.
+recently became acquainted with this piece of usenet folklore in a
+blog [[http://jamesseibel.com/blog/?p%3D109][explaining how Mel pulled off his feats of grandeur]].  I would
+like to highlight some issues with venerating programmers like Mel's
+method. I will also discuss what lessons I think that Mel's story can
+teach us today.
 
 To be clear, Mel approached programming not as an exercise in the
 abstract, but as an engineering task.  The way that the term "software
-engineer" conjures images of men with true grit composing electrons to
-build virtual bridges or skyscrapers; taking their lunch casually
+engineer" conjures images of men with true grit. These engineers compose electrons to
+build virtual bridges or skyscrapers. They take their lunch casually
 1500ft from certain death.  Mel wasn't programming so much as he was
-configuring a machine of infinite possibility to play blackjack with
+configuring a machine of infinite possibility. Mel's program played blackjack with
 potential customers.
 
-While there is no hard evidence, it is likely that Mel is Mel Kaye,
-who also wrote a [[compiler%20for%20the%20LGP-30][compiler for the LGP-30]]. For the purposes of this
-article I'm going focus on Mel's method (writing directly in hex) for
-programming blackjack on the RPC-4000.  An immediate consequence of
-Mel's method is that it is impossible for another programmer to pick
-up and immediately understand.  Certainly other RPC-4000 programmers
-could dissect his code and start to understand his meaning, but in
+While there is no hard evidence, it is likely that Mel is Mel Kaye. He
+wrote a [[compiler%20for%20the%20LGP-30][compiler for the LGP-30]]. For the purposes of this
+article I'm going focus on Mel's method (writing in hex).
+Mel's method makes it impossible for another programmer to pick
+up and immediately understand.   Other RPC-4000 programmers
+were capable of dissecting his code to understand his meaning. In
 writing in the raw hexadecimal[fn:1] Mel obfuscates his meaning.  This
 completely removes the human element from his task.
 
@@ -36,13 +35,13 @@ Computer programs are expressions of ideas first, and produce results
 when run on machines second.  If this order is confused, or the first
 part ignored, the whole enterprise falls apart.  Indeed, when Ed
 Nather is tasked with finding a bug in Mel's program it takes him
-weeks to dissect what is happening, and ultimately he gives up after
+weeks to dissect what is happening. He gives up after
 finally grokking a non-infinite infinite loop.  
 
 At this point, some audience members may be thinking "uh oh I know
-where he's going" and think that the rest of the discussion will be
+where he's going." The rest of the discussion will be
 about the importance of writing and maintaining documentation.  I want
-to argue the opposite. Good documentation is very important, but when
+to argue the opposite. Good documentation is very important. When
 it comes to writing code that humans can read, documentation should
 take a back seat to clear code.
 
@@ -53,52 +52,47 @@ understands[fn:2]. If we take this attitude when writing code then
 becomes an exercise in editing.
 
 Taking this perspective, instead of the success condition being "it
-does what I want" and "if it ain't broke don't fix it" there is a
-framework for how to approach development.  The idea that your first
-draft is getting your ideas on the page and refining from there
-replaces the "once it works I'm done." You would never publish the
-first draft, in the same way that you should never publish the first
+does what I want". A well as "if it ain't broke don't fix it," there is a
+framework for how to approach development.  The idea is to approach code the way you approach literature. Your first
+draft is getting your ideas on the page. Editing from the first draft
+replaces "once it works I'm done." You would never publish the
+first draft of anything.  In the same way that you should never publish the first
 working version of a program.  In the parlance of test driven design,
 this is the refactor of "[[http://www.jamesshore.com/Blog/Red-Green-Refactor.html][Red, Green, Refactor]]".
 
 So how does Mel fit into this perspective? Mel understood the machine
-he was writing code for inside out.  This is valuable, and should not
+he was writing code for inside out.  This should not
 be abandoned completely at the cost of making computer code
 understandable by humans. It is where and how Mel's tricks should be
 used that make the difference.  
 
 One of the amazing things about a computer is how it is suited for
-layers of abstraction.  One can follow these layers up and down until
-they are either reasoning about problems in number theory or looking
+layers of abstraction.  One can follow these layers up and down. At one level you can reason about problems in number theory. At another you can look
 at how the silicone is laid out to allow a particular junction to
-work.  If you understand the quirks of the lower level system very
-well (as Mel did), then there may be opportunities to implement
-changes to the compilers that would take advantage of those quirks.
-Then when other programmers used the compiler, they would all benefit
-from Mel's low level understanding of the system. 
+work. In Mel's case he would be able to take advantage of the system's quirks in the compiler.
+Everyone would benefit
+from Mel's low level understanding of the system.
 
-For instance, Mel exploited the time it took for the drum memory to
+For instance,Mel exploited the time it took for the drum memory to
 rotate to avoid a time-delay loop when interfacing with the
-[[https://en.wikipedia.org/wiki/Friden_Flexowriter][Flexowriter]] (the IO interface to the RPC-4000).  This meant that he
-could orchestrate things so that the minimum amount of time was used
-in waiting for the Flexowriter to be ready to print the next character
-of output.  This is a clever optimization, and if Mel had been able to
-incorporate it as an optimization for the Fortran compiler, then
-everyone would have been able to benefit from this trick.  This would
-allow everyone coding on the RPC-4000 to enjoy faster programs without
-worrying about the intricacies of drum memory. Instead, Mel wrote
-these optimization tricks directly into his code, allowing it to
-outperform the equivalent Fortran compiler, and impress potential
-clients.  This later was the apparent win for the company that
-justified Mel's unorthodox approach to programming.
+[[https://en.wikipedia.org/wiki/Friden_Flexowriter][Flexowriter]]. He could orchestrate things so that the minimum amount of
+time was used waiting for the Flexowriter.  This is a clever
+optimization. If Mel had been able to incorporate it as an
+optimization for the Fortran compiler, everyone would have benefit
+from this trick.  This would allow everyone coding on the RPC-4000 to
+enjoy faster programs. Programmers wouldn't worry about the
+intricacies of drum memory. Instead, Mel wrote these optimization
+tricks directly into his code. It always outperformed the equivalent
+Fortran compiler, and impress potential clients.  This was the clear
+win for the company that justified Mel's unorthodox approach to
+programming.
 
-What have we (hopefully) learned from analyzing this piece of Usenet
-lore? Knowing the computer inside out from top to bottom is valuable.
-This knowledge can be used to make computers run programs really fast.
-It is better to apply this knowledge to a system that everyone will
-benefit from rather than one programmer.  And finally it is important
-to write clear code that other people understand.
-
+What have we learned from analyzing this piece of Usenet lore? Knowing
+the computer inside out from top to bottom is valuable.  This
+knowledge can be used to make computers run programs really fast.  It
+is better to apply this knowledge to a system that everyone will
+benefit.  And finally, it is important to write clear code that other
+people understand.
 
 [fn:1] The closest modern equivalent would be writing the elf by hand
 in Linux, or an executable (.exe) on Windows
