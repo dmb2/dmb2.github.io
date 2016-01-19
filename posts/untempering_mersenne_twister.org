@@ -6,34 +6,32 @@
 - Estimated time to read: 15 min
 
 I've been working on the [[http://cryptopals.com][Matasano Crypto Challenges]]. They are worth an
-article on their own.  You learn crypto as deployed in web
-applications. They teach you crypto systems by
-breaking them.  This is an excellent way to learn crypto.  It
-teaches you to assess systems based on potential weaknesses rather
-than their abstract properties.
+article on their own[fn:1].  In them you learn crypto as deployed in web
+applications. They teach you crypto systems by breaking them.  This is
+an excellent way to learn crypto.  It teaches you to assess systems
+based on potential weaknesses rather than their abstract properties.
 
 A crypto implementation is usually built out of smaller units called
 crypto primitives.  It is important that these smaller units be secure
 against leaking information.  If not the integrity of the entire
 system is compromised.  An important cryptographic primative is the
-pseudo-random number generator (PRNG)[fn:1]. So far in the challenges
-everything has been straightforward[fn:2][fn:3]. Cryptographically
-secure PRNGs (CSPRNGs) exist, programmers may not realize that they
+pseudo-random number generator (PRNG). While cryptographically secure
+PRNGs (CSPRNGs) exist[fn:2], programmers may not realize that they
 should use them.  Instead they reach for their language's native PRNG.
 
-Probably this is the  [[https://en.wikipedia.org/wiki/Mersenne_Twister][Mersenne Twister PRNG]], based on a Mersenne prime number.  I still haven't grokked
-why this is important to the algorithm. I do know that it makes
-the period of the PRNG (the amount of time before the PRNG repeats an
-output) huge (~10^{6000}).  The algorithm is explained
-in technical detail on the wikipedia page linked above.  What interests me the most is the
-final step of the algorithm.  This is the "tempering step"
-when the state array output is transformed. Reversing the tempering step is [[https://jazzy.id.au/2010/09/22/cracking_random_number_generators_part_3.html][covered in]] many places
-as [[https://stackoverflow.com/questions/16365125/what-makes-the-mersenne-twister-tempering-function-reversible][well]], and I have benefited from them all. The mathematical
-description of the algorithm calls for the tempering matrix to be
-invertible, meaning:
+This this is in all likelihood the [[https://en.wikipedia.org/wiki/Mersenne_Twister][Mersenne Twister PRNG]], based on a
+Mersenne prime number.  I still haven't grokked why this is important
+to the algorithm. I do know that it makes the period of the PRNG (the
+amount of time before the PRNG repeats an output) huge (~10^{6000}).
+The algorithm is explained in technical detail on the wikipedia page
+linked above.  What interests me the most is the final step of the
+algorithm.  This is the "tempering step" when the state array output
+is transformed. Reversing the tempering step is [[https://jazzy.id.au/2010/09/22/cracking_random_number_generators_part_3.html][covered in]] many places
+as [[https://stackoverflow.com/questions/16365125/what-makes-the-mersenne-twister-tempering-function-reversible][well]]. The mathematical description of the algorithm calls for the
+tempering matrix to be invertible, meaning: 
 $$
 x_{i} = T s_{i}
-$$
+$$ 
 $$
 s_{i} = T^{-1}x_{i}
 $$
@@ -44,7 +42,8 @@ $s_{i}$.  Repeat this 624 times and you have discovered the entire
 internal state of the RNG. You can now predict every future output of
 the RNG for all time.  If your crypto system is based on the Mersenne
 RNG once you've cloned it you can create the same stream of bytes.
-This may allow you to decrypt all future encrypted messages.
+This may allow you to decrypt all future encrypted messages (and with
+a little more work, all past messages).
 
 I say on paper, because it turns out that inverting $T$ as it is
 stated isn't as clear as inverting a matrix.  The [[https://en.wikipedia.org/wiki/Mersenne_Twister#Algorithmic_detail][algorithm specifies]]
@@ -57,20 +56,21 @@ x := x\oplus ((x >> t))\\
 $$
 Where $s$ is an input from the internal state, $x$ is the final
 result, $\oplus$ is addition mod 2 (bitwise xor), >> and << are the
-right and left bitshift operators respectively, $\otimes$ is multiplication
-mod 2 (bitwise and). Finally $u$, $d$, $s$, $b$, $t$, and $c$ are
-parameters for the tempering transform.  The specific values can be
-referenced on the wiki page or [[http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/CODES/mt19937ar.c][in the reference implementation
-provided by]] the author of the algorithm.
+right and left bitshift operators respectively, $\otimes$ is
+multiplication mod 2 (bitwise and). Finally $u$, $d$, $s$, $b$, $t$,
+and $c$ are parameters for the tempering transform.  The specific
+values can be referenced on the wiki page or [[http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/CODES/mt19937ar.c][in the reference
+implementation provided by]] the author of the algorithm.
 
 As attackers we're after the internal state of the RNG.  This means
 inverting the tempering transformation outlined above.  How can we do
 this? If we wanted we could construct a matrix representation of $T$
-and invert this matrix. This seems infeasible on the face of it. Let's instead look at some interesting properties of each
-transformation step. I don't know if this combination of operations
-has a name in the literature. I've taken to calling them diffuse
-operations.[fn:4] If you are trying to wrap your head around
-these transformations, I recommend playing with them on paper.
+and invert this matrix. This seems infeasible on the face of it. Let's
+instead look at some interesting properties of each transformation
+step. I don't know if this combination of operations has a name in the
+literature. I've taken to calling them diffuse operations.[fn:3] If
+you are trying to wrap your head around these transformations, I
+recommend playing with them on paper.
 
 Let's look at one in detail:
 $$ 
@@ -87,7 +87,7 @@ sheet of paper without cramping your hand or making too many mistakes.
 In the following, $|x|$ is the number of bits represented by $x$ (32
 in the full case, 8 in our toy). First note that if $a > |x|/2$ we
 have the following interesting property. Say $a=5$, if we put each
-operation on its own row[fn:5] we have:
+operation on its own row[fn:4] we have:
 #+BEGIN_EXAMPLE
        x: 1  0  1  1  1  0  1  1 
     x>>a: 0  0  0  0  0  1  0  1 
@@ -116,44 +116,32 @@ is symmetric.
 Let us now turn to the more complicated case when $a < |x|/2$. In this
 case, when we go to recover the bits, some of the scrambled bits will
 be "in the way" and we may not get a clean recovery the way we do when
-$a > |x|/2$.  How do we proceed? The answer is [[https://jazzy.id.au/2010/09/22/cracking_random_number_generators_part_3.html][buried in another blog]]
-post on this topic.  If we mask out the bits that might interfere,
-recover those that we have originally, and then repeat sliding our
-mask over, we can recover the original integer.  Again ignoring $b$
-let's let $a=3$ this time:
-#+BEGIN_EXAMPLE
-       x: 1  0  1  1  1  0  1  1 
-    x>>a: 0  0  0  1  0  1  1  1
-x^(x>>a): 1  0  1  0  1  1  0  0 
-#+END_EXAMPLE
-Note that we have the first three bits intact (=1 0 1=).  After
-shifting there will be two bits (=0 1=) that are not
-necessarily the same as the input. The trick is to mask them by
-multiplying by $m=$ =0  0  0  1  1  1  0  0=, this looks like:
-#+BEGIN_EXAMPLE
-           x: 1  0  1  0  1  1  0  0 
-        x>>a: 0  0  0  1  0  1  0  1
-           m: 0  0  0  1  1  1  0  0 
-    (x>>a)&m: 0  0  0  1  0  1  0  0 
-x^((x>>a)&m): 1  0  1  1  1  0  0  0 
-#+END_EXAMPLE
-Now in the final line we've recovered the first 6 bits.  We have
-more than half the bits back, we can repeat the diffusion step
-and recover the whole thing.  
+$a > |x|/2$.  How do we proceed? We still have $a$ bits at the front
+that are untouched, so we can get $2a$ bytes with one diffuse step.
+If we continue to feed the output of the diffuse step as the input to
+the next, eventually we'll recover the original integer.  
 
-Generalizing this to 32 bits is easy.  If $a > 16$ then we only
-have to "turn the crank" once.  This is true for the last step of the
-tempering function.  If $a < 16$, we apply the masking
-procedure until more than half the bits are recovered. Then we
-"turn the crank" one last time and recover the number.  
+The only trouble with this is that it is not clear how to calculate
+the number of times you need to apply the diffuse step in order to
+recover the (unknown) integer.  Furthermore, the number of steps
+required depends on $x$.  While it seems we're at an impasse, it is
+possible to write down a modified diffuse procedure that takes the
+original $x$ value.  Then, it is simply a matter of applying the
+modified procedure $\lceil |x|/a \rceil$ times.  The modified
+procedure is:
+$$ 
+r := x
+r := x \oplus ((r >> a) \otimes b) 
+$$
 
 There you have it, a prescription for undoing each step of the
-tempering function.  When implemented, you apply the
-inverse of each diffusion step in reverse order. This inverts the tempering of RNG output.  From here its a short step to getting the
-internal state of the RNG and thus break the whole thing wide open.
+tempering function.  When implemented, you apply the inverse of each
+diffusion step in reverse order. This inverts the tempering of RNG
+output.  From here its a short step to getting the internal state of
+the RNG and thus break the whole thing wide open.
 
-There are some unanswered questions though. I suspect that the diffuse
-steps are cyclic, meaning that if you let:
+There are some unanswered questions though. The diffuse steps are
+cyclic, meaning that if you let:
 $$
 d(x,c,b) = x \oplus (x >> c) \otimes b
 $$
@@ -166,11 +154,23 @@ then there exists a finite $n$ such that
 $$
 x = d^{(n)}(x,c,b)
 $$
-If this is the case, then reversing the tempering is just a matter of
-figuring out how to derive $n$ for values of $c$ and $b$. I suspect
-that the answer is independent of $b$, but I haven't been able to get
-anywhere on actually constructing an argument that proves any real
-relationship.
+
+In this case, reversing the tempering is just a matter of figuring out
+how to derive $n$ for values of $x$, $c$ and $b$. I suspect that the answer
+is independent of $b$, but I haven't been able to get anywhere on
+actually constructing an argument that proves any real
+relationship. Furthermore, my small explorations show that while $n$
+is finite, it depends on $x$, this is undesirable since it requires
+knowledge that is initially inaccessible.  
+
+One final point before I close: This entire attack hinges on the
+tempering step being invertible.  If the tempering step weren't
+invertible, the attack wouldn't work and the internal state would
+remain hidden from attackers, securing this PRNG. The most obvious way
+of achieving this is to hash the output and then use whatever bits of
+the hash are required for the application.  The issue with this is
+that hashes may skew the statistical properties of the PRNG, or worse,
+provide side-channel leaks.
 
 In closing, crypto is a lot of fun. The math involved while simple,
 has subtleties that are fun to play around with. I hope that if
@@ -178,18 +178,15 @@ you are also wandering the path towards crypto enlightenment that you
 find this explanation useful.  If you have any comments, you can tweet
 me [[https://twitter.com/dbjergaard][@dbjergaard]].  
 
-[fn:1] I pronounce it "pring", and the cryptographically-secure PRNG
+[fn:1] The folks on #cryptopals in freenode have been extraordinarily
+helpful and are always patient with me when I'm trying to figure out
+how something works.  If you get stuck there are regulars there who
+have completed all of the exercises.
+[fn:2] I pronounce it "pring", and the cryptographically-secure PRNG
 (CSPRNG) as "see-es-pring".  I don't know if this is wide spread as
 I've never had a verbal conversation about PRNGs with someone.
-[fn:2] Breaking the repeating key xor probably deserves its own article
-since its conceptually straight forward, but still manages to be
-tricky to get right
-[fn:3] The folks on #cryptopals in freenode have been extraordinarily helpful
-and are always patient with me when I'm trying to figure out how
-something works.  If you get stuck there are regulars there who have
-completed all of the exercises.  
-[fn:4] Since the tempering step is meant to "diffuse" the state bits into
+[fn:3] Since the tempering step is meant to "diffuse" the state bits into
 the final output and are there to improve the statistical properties
 of the random numbers
-[fn:5] Remember, we set $b:=$ =0xFFFFFFFF=, so the bitwise and step
+[fn:4] Remember, we set $b:=$ =0xFFFFFFFF=, so the bitwise and step
 just "copies" the bits from $x>>a$

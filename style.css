@@ -60,12 +60,14 @@ body { width: 87.5%;
        margin-left: auto;
        margin-right: auto;
        padding-left: 12.5%;
-       font-family: ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: charter, "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px;
        counter-reset: sidenote-counter; }
-
+example {
+    width: 75%;
+}
 h1 { font-weight: 400;
      margin-top: 4rem;
      margin-bottom: 1.5rem;
@@ -93,7 +95,7 @@ p.subtitle { font-style: italic;
              display: block;
              line-height: 1; }
 
-table { width: 98%;
+table { width: 75%;
         text-align: right;
         font-size: 1.2rem;
         line-height: 1.4;
@@ -166,7 +168,7 @@ blockquote p { font-size: 1.1rem;
 blockquote footer { width: 50%;
                     text-align: right; }
 
-ul { list-style-type: none; }
+/* ul { list-style-type: none; } */
 
 li { padding: 0.5rem 0; }
 
@@ -243,7 +245,7 @@ p, footer, pre.code, div.table-wrapper { width: 55%; }
 
 .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 
-.code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+.code { font-family: 'Inconsolata', "Liberation Mono", monospace;
         font-size: 1.125rem;
         line-height: 1.6; }
 
