@@ -10,11 +10,11 @@ update it here.
 - Simulate water in a glass/tank (bonus points if I use the ray tracer
   above)
 - Write/Submit code to the IOCCC (even if they stop doing them :))
-- Finish the Matasano cryptopals exercises [2/6]
+- Finish the Matasano cryptopals exercises [4/6]
   - [X] Set 1
   - [X] Set 2
-  - [ ] Set 3
-  - [ ] Set 4
+  - [X] Set 3
+  - [X] Set 4
   - [ ] Set 5
   - [ ] Set 6
 - Write a lisp using [[https://github.com/kanaka/mal/blob/master/process/guide.md][mal]], preferably using nasm 

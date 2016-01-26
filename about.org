@@ -5,6 +5,7 @@ When I'm not writing opinion pieces for this website, I can be found:
 - Hacking on various personal [[https://github.com/dbjergaard?tab%3Drepositories][software projects]]
 - Extending and Hacking Emacs
 - Reading anything I can get my hands on, recently though:
+  - The Baroque Cycle - Neal Stephenson
   - Art of Intrusion - Kevin Mitnick
   - The Honorable Schoolboy - John LeCarré 
   - Web Application Hacker's Handbook - Dafydd Stuttard & Marcus Pinto
