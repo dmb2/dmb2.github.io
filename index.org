@@ -1,4 +1,4 @@
-#+TITLE: A poor man's blog
+#+TITLE: David Bjergaard's Blog
 #+INCLUDE: frontmatter.org
 * Random Ramblings
 - [[file:posts/untempering_mersenne_twister.org][Untempering the Mersenne Twister]]
