@@ -92,7 +92,9 @@ the computer inside out from top to bottom is valuable.  This
 knowledge can be used to make computers run programs really fast.  It
 is better to apply this knowledge to a system that everyone will
 benefit.  And finally, it is important to write clear code that other
-people understand.
+people understand. 
+
+If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
 
 [fn:1] The closest modern equivalent would be writing the elf by hand
 in Linux, or an executable (.exe) on Windows

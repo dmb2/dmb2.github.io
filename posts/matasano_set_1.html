@@ -217,12 +217,12 @@ for the JavaScript code in this tag.
 Matasano security (now part of <a href="https://www.nccgroup.trust/us/our-services/security-consulting/">NCC Group</a>) has circulated a set of six
 challenges related to implementing cryptographic protocols.  They
 start basic and become more sophisticated, but they all revolve around
-exposing flaws in naive implementations. Originally they were
-circulated by email and you had to submit your solutions before
-advancing to the next set.  In addition, Matasano required that
-write-ups not be published in order to avoid people just reading
-solutions and not fully grokking the implementation flaw being
-exposed. 
+exposing flaws in naive implementations of cryptographic
+systems. Originally they were circulated by email and you had to
+submit your solutions before advancing to the next set.  In addition,
+Matasano required that write-ups not be published in order to avoid
+people just reading solutions and not fully grokking the
+implementation flaw being exposed.
 </p>
 
 <p>
@@ -324,16 +324,17 @@ from the previous challenges, then you should be good to go.
 
 <p>
 There are two parts of this challenge that can use a little
-elaboration.  The first is determining the key length, the second is
-using the key length to extract the key.  
+elaboration.  The first is determining the key given its length, the
+second is determining the key length.
 </p>
 </div>
+
 <div id="outline-container-sec-2-3-1" class="outline-4">
 <h4 id="sec-2-3-1">Determining the key of a Vigenere cipher given its length</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-Lets take a concrete example
-from the Vigenere cipher.  Let our plain text be:
+Lets take a concrete example from the Vigenere cipher.  Let our plain
+text be:
 </p>
 <blockquote>
 <p>
@@ -417,9 +418,9 @@ B\), then \(A \oplus B = 0\).  Now if we look at the repeating key XOR cipher
 again, we have (using binary XOR instead of adding mod 26):
 </p>
 <pre class="example">
-    53454352455453454352455453454352455453454352455453454352455453454352455453454352
-(+) 535045414b534f46544c59414e44434152525941424947535449434b594f5557494c4c474f464152
-    ----------------------------------------
+    535045414b534f46544c59414e44434152525941424947535449434b594f5557494c4c474f464152
+(+) 53454352455453454352455453454352455453454352455453454352455453454352455453454352
+    --------------------------------------------------------------------------------
     001506130e071c03171e1c151d01001317060a04011b0207070c00191c1b06120a1e09131c030200
 </pre>
 <p>
@@ -499,6 +500,10 @@ As the challenges state, if you can make it through Challenge 6, then
 you're qualified to finish all 6 sets.  The later sets will require
 more and more infrastructure to set up the attacks, but in general you
 won't have more moving pieces than Challenge 6. 
+</p>
+
+<p>
+If you have any comments, you can tweet me <a href="https://twitter.com/dbjergaard">@dbjergaard</a>.
 </p>
 </div>
 </div>
