@@ -1,6 +1,7 @@
 #+TITLE: David Bjergaard's Blog
 #+INCLUDE: frontmatter.org
 * Random Ramblings
+- [[./posts/matasano_set_1.org][Matasano Crypto Challenges Set 1]]
 - [[file:posts/untempering_mersenne_twister.org][Untempering the Mersenne Twister]]
 - [[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
 - [[file:posts/bucket-list.org][Programming Bucket List]]

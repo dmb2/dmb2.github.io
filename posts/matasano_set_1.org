@@ -1,0 +1,207 @@
+#+include: frontmatter.org org
+#+TITLE: Matasano Crypto Challenges Set 1
+#+HTML_MATHJAX: align:"left" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
+- Started writing: <2016-02-08 Mon>
+- Posted: <2016-02-10 Wed>
+- Estimated time to read: 10 minutes
+* Introduction
+Matasano security (now part of [[https://www.nccgroup.trust/us/our-services/security-consulting/][NCC Group]]) has circulated a set of six
+challenges related to implementing cryptographic protocols.  They
+start basic and become more sophisticated, but they all revolve around
+exposing flaws in naive implementations. Originally they were
+circulated by email and you had to submit your solutions before
+advancing to the next set.  In addition, Matasano required that
+write-ups not be published in order to avoid people just reading
+solutions and not fully grokking the implementation flaw being
+exposed. 
+
+Now, anything is allowed. All seven sets (the original six plus a
+bonus set) are published at [[http://cryptopals.com/][cryptopals.com]].  I want to write up my
+impressions, and hints, but I don't want to give away the
+solutions. That being said, my solutions are here:
+[[https://github.com/dbjergaard/cryptopals-solutions][github.com/cryptopals-solutions]].  Please don't read them until you've
+either solved it yourself, or exhausted all help on #cryptopals on
+freenode.
+
+* Set 1
+** Challenge 1 and 2
+The first two challenges are warm up.  The first, converting between
+hex and base64, are designed to get you comfortable thinking in
+bytes.  Base64 is used a lot to encode binary information, in the
+challenges and on the web.  Hex is used to view the "raw bytes."  The
+only thing that bears a little elaboration is the Cryptopals Rule:
+#+BEGIN_QUOTE
+Always operate on raw bytes, never on encoded strings. Only use hex and base64 for pretty-printing.
+#+END_QUOTE
+What this means is, don't write your code to depend on the string
+representation of the hex values. Put another way: always operate on
+unsigned integers ranging from 0 to 255.  
+** Challenge 3
+Challenge 3 is the first time we have to discover a secret given a
+cipher text.  The single byte XOR, is another name for the Ceasar
+cipher.  Since the key is a single byte, there are only 255
+possible key values. This makes it very simple to test all possible
+keys.  The only challenge comes in detecting which key produces the
+correct plain text.  
+
+There are a number of ways to approach this problem.  One is to
+require that all characters of the decrypted text be printable.
+Another (and the one hinted in the challenge, and required later on)
+is to use frequency analysis.  Since the XOR operation translates each
+byte of the plaintext string by the same amount, it doesn't modify the
+frequency distribution of the input text.  This means that the correct
+key is the one that produces the frequency distribution that most
+closely matches the plaintext distribution.  In this case, its
+english.  What metric should we use to determine how close they are?
+Again, there are many possible, but the one I've used is a combination
+of requiring printable ASCII characters and Pearson's $\chi^2$ test.
+The [[https://en.wikipedia.org/wiki/Pearson%2527s_chi-squared_test][wikipedia article]] describes the nitty gritty details, but the part
+you need to implement is:
+\begin{equation}
+\chi^2 = \sum_{i=1}^n \frac{(O_i-E_i)^2}{E_i}
+\end{equation}
+
+If we view this as a histogram, $O_i$ is the $i^{\text{th}}$ bin of
+the histogram we observe with a given key (ie, the frequency histogram
+when we decrypt the ciphertext with key $k$).  Similarly, $E_i$ is the
+$i^{\text{th}}$ bin of the expected English frequency histogram.
+These histograms should be normalized so that the sum of their bin
+values is 1.  If you don't think in terms of histograms and bins, then
+look at it as $O_i$ is the probability that you observe the
+$i^{\text{th}}$ letter of your alphabet.  In this challenge, and
+challenge 6, the alphabet used is important.  One that works is $A$ =
+{ =a-z=, ' '}. It doesn't matter what alphabet you choose as long as
+you are consistent in your definitions for $O_i$ and $E_i$.
+
+** Challenge 6
+Challenge 4 exercises the code and concepts you developed in
+challenge 3.  Challenge 5 sets up the code you need for
+challenge 6. Challenge 6 is the challenge that tests your ability to
+make multiple pieces of code work together to produce a result greater
+than the sum of its pieces.  The challenge text does a good job of
+outlining the strategy and if you have consistent definitions in place
+from the previous challenges, then you should be good to go.
+
+There are two parts of this challenge that can use a little
+elaboration.  The first is determining the key length, the second is
+using the key length to extract the key.  
+*** Determining the key of a Vigenere cipher given its length
+Lets take a concrete example
+from the Vigenere cipher.  Let our plain text be:
+#+BEGIN_QUOTE
+Speak softly and carry a big stick; you will go far.
+#+END_QUOTE
+Which after removing spaces and punctuation and up-casing is:
+#+BEGIN_EXAMPLE
+SPEAKSOFTLYANDCARRYABIGSTICKYOUWILLGOFAR
+#+END_EXAMPLE
+Let our key be $k$ = "=SECRET=", then our cipher text is:
+#+BEGIN_EXAMPLE
+KTGROLGJVCCTFHERVKQEDZKLLMEBCHMAKCPZGJCI
+#+END_EXAMPLE
+Now we put ourselves in the shoes of the cryptanalyst.  Lets say he
+knows the length of the key, but not the word.  If we break up the
+cipher text in columns with rows the same length of the key (6 in this
+example) we get:
+#+BEGIN_EXAMPLE
+SECRET
+------
+KTGROL
+GJVCCT
+FHERVK
+QEDZKL
+LMEBCH
+MAKCPZ
+GJCI
+#+END_EXAMPLE
+Now notice that All the letters that line up in the first column
+correspond to a Caesar cipher with key "S":
+#+BEGIN_EXAMPLE
+K G F Q L M G
+#+END_EXAMPLE
+Everything in the second column is a Caesar cipher with key "E":
+#+BEGIN_EXAMPLE
+T J H E M A J
+#+END_EXAMPLE
+And so on.  Once we solve the Caesar cipher for each column (choosing
+the key that gives a frequency distribution that looks most like
+English), we have the set of Caesar keys that give the total Vigenere
+key $k$ = "=SECRET=". 
+
+*** Determining the key length
+Now that we know how to figure out the key given its length, we have
+to figure out its length.  As usual, there are a number of different
+approaches, but the one suggested by the challenge works well.  
+
+It requires that we calculate the Hamming distance between two
+strings. The first reason this works so well, is that in a binary
+alphabet we have just two letters (=0= and =1=). The Hamming distance
+measures the numbers of substitutions to transform one sequence to
+another.  If you play with a few binary sequences you will find that
+the bits which must change in string $A$ and string $B$ is: $C = A
+\oplus B$. To compute the Hamming distance we just sum the number of
+=1='s in the resulting binary string $C$.
+
+The second reason that this works is the property that if $A \equiv
+B$, then $A \oplus B = 0$.  Now if we look at the repeating key XOR cipher
+again, we have (using binary XOR instead of adding mod 26):
+#+BEGIN_EXAMPLE
+    53454352455453454352455453454352455453454352455453454352455453454352455453454352
+(+) 535045414b534f46544c59414e44434152525941424947535449434b594f5557494c4c474f464152
+    ----------------------------------------
+    001506130e071c03171e1c151d01001317060a04011b0207070c00191c1b06120a1e09131c030200
+#+END_EXAMPLE
+If we guess the key length to be three ($L=3$), then we would find the
+hamming distance between:
+\begin{equation}
+H('\text{001506}','\text{130e07}')=8
+\end{equation}
+Symbolically we would have ($C[x:y]$ denotes the substring starting at $x$
+and ending at $y$):
+\begin{align}
+H(C[0:3] &,C[3:6]) =8 \\
+H(P[0:3]\oplus K[0:3] &,P[3:6] \oplus K[3:6]) =8
+\end{align}
+If we let our plaintext for the first 6 letters be the same for the
+moment (say "AAAAAA"), then it becomes clear that we are finding the
+hamming distance between the first three letters of the key, and the
+second three letters of the key:
+\begin{equation}
+H(K[0:3],K[3:6])=5
+\end{equation}
+But, $L=3$ was just a guess, we have to try different key
+lengths. Something special happens when we guess $L=6$ in our example
+(remember K="SECRETSECRETSECRET..."):
+\begin{equation}
+H(K[0:6],K[6:12])=0
+\end{equation}
+but we don't or have the key yet, all we have is the cipher text:
+\begin{equation}
+H(C[0:6],C[6:12])=15
+\end{equation}
+Notice however, that this is just the hamming distance between the
+first 12 characters of our plaintext:
+\begin{equation}
+H(P[0:6],P[6:12])=15
+\end{equation}
+
+It should hopefully be clear that when we find the hamming distance
+between parts of our cipher text using the correct key length, we are
+only finding the hamming distance between parts of the plain text.  If
+we guess the wrong key length, the cancellation doesn't occur and it
+will result in a larger hamming distance.  This leads to the
+procedure: guess multiple key lengths and choose the key length with
+the smallest hamming distance.
+
+* Conclusion
+The last two challenges in the first set get us ready for what's
+coming in the next set.  Challenge 7 forces us to figure out how to
+use OpenSSL in our language of choice, and Challenge 8 introduces us
+to an important feature of AES in ECB (Electronic Code Book) mode.  In
+ECB, identical 16 bytes of plaintext will encode to the same 16 byte
+cipher text.  
+
+As the challenges state, if you can make it through Challenge 6, then
+you're qualified to finish all 6 sets.  The later sets will require
+more and more infrastructure to set up the attacks, but in general you
+won't have more moving pieces than Challenge 6. 

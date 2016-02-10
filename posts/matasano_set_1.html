@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Matasano Crypto Challenges Set 1</title>
+<!-- 02/10/2016 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Bjergaard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "left",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Matasano Crypto Challenges Set 1</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><a href="../index.html">Home</a></td>
+<td class="left"><a href="../about.html">About</a></td>
+<td class="left"><a href="../gallery.html">Gallery</a></td>
+<td class="left"><a href="../links.html">Links</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>Started writing: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-08 Mon&gt;</span></span>
+</li>
+<li>Posted: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-10 Wed&gt;</span></span>
+</li>
+<li>Estimated time to read: 10 minutes
+</li>
+</ul>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Matasano security (now part of <a href="https://www.nccgroup.trust/us/our-services/security-consulting/">NCC Group</a>) has circulated a set of six
+challenges related to implementing cryptographic protocols.  They
+start basic and become more sophisticated, but they all revolve around
+exposing flaws in naive implementations. Originally they were
+circulated by email and you had to submit your solutions before
+advancing to the next set.  In addition, Matasano required that
+write-ups not be published in order to avoid people just reading
+solutions and not fully grokking the implementation flaw being
+exposed. 
+</p>
+
+<p>
+Now, anything is allowed. All seven sets (the original six plus a
+bonus set) are published at <a href="http://cryptopals.com/">cryptopals.com</a>.  I want to write up my
+impressions, and hints, but I don't want to give away the
+solutions. That being said, my solutions are here:
+<a href="https://github.com/dbjergaard/cryptopals-solutions">github.com/cryptopals-solutions</a>.  Please don't read them until you've
+either solved it yourself, or exhausted all help on #cryptopals on
+freenode.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Set 1</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Challenge 1 and 2</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The first two challenges are warm up.  The first, converting between
+hex and base64, are designed to get you comfortable thinking in
+bytes.  Base64 is used a lot to encode binary information, in the
+challenges and on the web.  Hex is used to view the "raw bytes."  The
+only thing that bears a little elaboration is the Cryptopals Rule:
+</p>
+<blockquote>
+<p>
+Always operate on raw bytes, never on encoded strings. Only use hex and base64 for pretty-printing.
+</p>
+</blockquote>
+<p>
+What this means is, don't write your code to depend on the string
+representation of the hex values. Put another way: always operate on
+unsigned integers ranging from 0 to 255.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Challenge 3</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Challenge 3 is the first time we have to discover a secret given a
+cipher text.  The single byte XOR, is another name for the Ceasar
+cipher.  Since the key is a single byte, there are only 255
+possible key values. This makes it very simple to test all possible
+keys.  The only challenge comes in detecting which key produces the
+correct plain text.  
+</p>
+
+<p>
+There are a number of ways to approach this problem.  One is to
+require that all characters of the decrypted text be printable.
+Another (and the one hinted in the challenge, and required later on)
+is to use frequency analysis.  Since the XOR operation translates each
+byte of the plaintext string by the same amount, it doesn't modify the
+frequency distribution of the input text.  This means that the correct
+key is the one that produces the frequency distribution that most
+closely matches the plaintext distribution.  In this case, its
+english.  What metric should we use to determine how close they are?
+Again, there are many possible, but the one I've used is a combination
+of requiring printable ASCII characters and Pearson's \(\chi^2\) test.
+The <a href="https://en.wikipedia.org/wiki/Pearson%2527s_chi-squared_test">wikipedia article</a> describes the nitty gritty details, but the part
+you need to implement is:
+</p>
+\begin{equation}
+\chi^2 = \sum_{i=1}^n \frac{(O_i-E_i)^2}{E_i}
+\end{equation}
+
+<p>
+If we view this as a histogram, \(O_i\) is the \(i^{\text{th}}\) bin of
+the histogram we observe with a given key (ie, the frequency histogram
+when we decrypt the ciphertext with key \(k\)).  Similarly, \(E_i\) is the
+\(i^{\text{th}}\) bin of the expected English frequency histogram.
+These histograms should be normalized so that the sum of their bin
+values is 1.  If you don't think in terms of histograms and bins, then
+look at it as \(O_i\) is the probability that you observe the
+\(i^{\text{th}}\) letter of your alphabet.  In this challenge, and
+challenge 6, the alphabet used is important.  One that works is \(A\) =
+{ <code>a-z</code>, ' '}. It doesn't matter what alphabet you choose as long as
+you are consistent in your definitions for \(O_i\) and \(E_i\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Challenge 6</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Challenge 4 exercises the code and concepts you developed in
+challenge 3.  Challenge 5 sets up the code you need for
+challenge 6. Challenge 6 is the challenge that tests your ability to
+make multiple pieces of code work together to produce a result greater
+than the sum of its pieces.  The challenge text does a good job of
+outlining the strategy and if you have consistent definitions in place
+from the previous challenges, then you should be good to go.
+</p>
+
+<p>
+There are two parts of this challenge that can use a little
+elaboration.  The first is determining the key length, the second is
+using the key length to extract the key.  
+</p>
+</div>
+<div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">Determining the key of a Vigenere cipher given its length</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+Lets take a concrete example
+from the Vigenere cipher.  Let our plain text be:
+</p>
+<blockquote>
+<p>
+Speak softly and carry a big stick; you will go far.
+</p>
+</blockquote>
+<p>
+Which after removing spaces and punctuation and up-casing is:
+</p>
+<pre class="example">
+SPEAKSOFTLYANDCARRYABIGSTICKYOUWILLGOFAR
+</pre>
+<p>
+Let our key be \(k\) = "<code>SECRET</code>", then our cipher text is:
+</p>
+<pre class="example">
+KTGROLGJVCCTFHERVKQEDZKLLMEBCHMAKCPZGJCI
+</pre>
+<p>
+Now we put ourselves in the shoes of the cryptanalyst.  Lets say he
+knows the length of the key, but not the word.  If we break up the
+cipher text in columns with rows the same length of the key (6 in this
+example) we get:
+</p>
+<pre class="example">
+SECRET
+------
+KTGROL
+GJVCCT
+FHERVK
+QEDZKL
+LMEBCH
+MAKCPZ
+GJCI
+</pre>
+<p>
+Now notice that All the letters that line up in the first column
+correspond to a Caesar cipher with key "S":
+</p>
+<pre class="example">
+K G F Q L M G
+</pre>
+<p>
+Everything in the second column is a Caesar cipher with key "E":
+</p>
+<pre class="example">
+T J H E M A J
+</pre>
+<p>
+And so on.  Once we solve the Caesar cipher for each column (choosing
+the key that gives a frequency distribution that looks most like
+English), we have the set of Caesar keys that give the total Vigenere
+key \(k\) = "<code>SECRET</code>". 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">Determining the key length</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+Now that we know how to figure out the key given its length, we have
+to figure out its length.  As usual, there are a number of different
+approaches, but the one suggested by the challenge works well.  
+</p>
+
+<p>
+It requires that we calculate the Hamming distance between two
+strings. The first reason this works so well, is that in a binary
+alphabet we have just two letters (<code>0</code> and <code>1</code>). The Hamming distance
+measures the numbers of substitutions to transform one sequence to
+another.  If you play with a few binary sequences you will find that
+the bits which must change in string \(A\) and string \(B\) is: \(C = A
+\oplus B\). To compute the Hamming distance we just sum the number of
+<code>1</code>'s in the resulting binary string \(C\).
+</p>
+
+<p>
+The second reason that this works is the property that if \(A \equiv
+B\), then \(A \oplus B = 0\).  Now if we look at the repeating key XOR cipher
+again, we have (using binary XOR instead of adding mod 26):
+</p>
+<pre class="example">
+    53454352455453454352455453454352455453454352455453454352455453454352455453454352
+(+) 535045414b534f46544c59414e44434152525941424947535449434b594f5557494c4c474f464152
+    ----------------------------------------
+    001506130e071c03171e1c151d01001317060a04011b0207070c00191c1b06120a1e09131c030200
+</pre>
+<p>
+If we guess the key length to be three (\(L=3\)), then we would find the
+hamming distance between:
+</p>
+\begin{equation}
+H('\text{001506}','\text{130e07}')=8
+\end{equation}
+<p>
+Symbolically we would have (\(C[x:y]\) denotes the substring starting at \(x\)
+and ending at \(y\)):
+</p>
+\begin{align}
+H(C[0:3] &,C[3:6]) =8 \\
+H(P[0:3]\oplus K[0:3] &,P[3:6] \oplus K[3:6]) =8
+\end{align}
+<p>
+If we let our plaintext for the first 6 letters be the same for the
+moment (say "AAAAAA"), then it becomes clear that we are finding the
+hamming distance between the first three letters of the key, and the
+second three letters of the key:
+</p>
+\begin{equation}
+H(K[0:3],K[3:6])=5
+\end{equation}
+<p>
+But, \(L=3\) was just a guess, we have to try different key
+lengths. Something special happens when we guess \(L=6\) in our example
+(remember K="SECRETSECRETSECRET&#x2026;"):
+</p>
+\begin{equation}
+H(K[0:6],K[6:12])=0
+\end{equation}
+<p>
+but we don't or have the key yet, all we have is the cipher text:
+</p>
+\begin{equation}
+H(C[0:6],C[6:12])=15
+\end{equation}
+<p>
+Notice however, that this is just the hamming distance between the
+first 12 characters of our plaintext:
+</p>
+\begin{equation}
+H(P[0:6],P[6:12])=15
+\end{equation}
+
+<p>
+It should hopefully be clear that when we find the hamming distance
+between parts of our cipher text using the correct key length, we are
+only finding the hamming distance between parts of the plain text.  If
+we guess the wrong key length, the cancellation doesn't occur and it
+will result in a larger hamming distance.  This leads to the
+procedure: guess multiple key lengths and choose the key length with
+the smallest hamming distance.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Conclusion</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The last two challenges in the first set get us ready for what's
+coming in the next set.  Challenge 7 forces us to figure out how to
+use OpenSSL in our language of choice, and Challenge 8 introduces us
+to an important feature of AES in ECB (Electronic Code Book) mode.  In
+ECB, identical 16 bytes of plaintext will encode to the same 16 byte
+cipher text.  
+</p>
+
+<p>
+As the challenges state, if you can make it through Challenge 6, then
+you're qualified to finish all 6 sets.  The later sets will require
+more and more infrastructure to set up the attacks, but in general you
+won't have more moving pieces than Challenge 6. 
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
