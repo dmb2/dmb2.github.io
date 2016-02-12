@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Matasano Crypto Challenges Set 2</title>
+<!-- 02/12/2016 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Bjergaard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "left",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Matasano Crypto Challenges Set 2</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><a href="../index.html">Home</a></td>
+<td class="left"><a href="../about.html">About</a></td>
+<td class="left"><a href="../gallery.html">Gallery</a></td>
+<td class="left"><a href="../links.html">Links</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>Started writing: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-12 Fri&gt;</span></span>
+</li>
+<li>Posted: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-12 Fri&gt;</span></span>
+</li>
+<li>Estimated time to read: 8 minutes
+</li>
+</ul>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Set 2</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+While the first set got us up to speed with the tools we need for
+later challenges (either by writing them ourselves or learning our
+chosen language's features), the second set develops more
+infrastructure for Set 3, and introduces attacks to AES-ECB.
+</p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Challenge 10</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Challenge 10 asks us to implement AES-CBC, or the
+Cipher-Block-Chaining mode of AES.  It works by XORing the previous
+ciphertext block with the current plaintext block.  This is to improve
+the "<a href="https://en.wikipedia.org/wiki/Confusion_and_diffusion">confusion and diffusion</a>" properties of the AES cipher.  In ECB
+mode, we know that the same plaintext encrypts to the same cipher text
+(ie if P[32:64]==P[80:96], then C[32:64]==C[80:96]).  In CBC this is
+not true because the plaintext is XORed with the previous block before
+encrypting.  The <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29">wikipedia article</a> describes the technical details of
+the implementing it.  For reference the operation for encrypting and
+decrypting is:
+</p>
+\begin{equation}
+C_i = E_{K}(P_i \oplus C_{i-1}, C_0 = IV) \\
+P_i = D_{K}(C_i)\oplus C_{i-1} , C_0 = IV) 
+\end{equation}
+<p>
+The fact that the decryption procedure relies on XORing the ciphertext
+(that an attacker can control) is very important! It will come up
+soon.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Challenge 12</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+This is the first of many chosen plaintext attacks.  In fact, I think
+it is an "<a href="https://en.wikipedia.org/wiki/Chosen-plaintext_attack">adaptive chosen plaintext attack</a>." This is also the first
+time in the challenges where we need to think about how this would
+come up in real applications in order to understand why its relevant.
+Typically servers issue cookies/session tokens that are encrypted
+strings that define the user's role and access level.  If the server
+uses AES in ECB mode, it may be possible for a malicious attacker to
+extract the format of the encrypted session token using this attack.
+</p>
+
+<p>
+The attack assumes that we have an oracle (the server) that will give
+us back cipher texts given a plaintext that we choose.  The oracle
+(aka server) appends an unknown string to the attackers chosen text
+and returns the cipher text of the concatenated plaintext.  Our goal
+is to read the unknown string.  
+</p>
+
+<p>
+Why does the challenge ask us to discover the block size and mode? If
+we were really attacking a server we wouldn't know either of them.
+Knowing how to determine those two facts enable us to test for this
+attack against servers that we may audit in real situations.
+</p>
+
+<p>
+I got stuck on this for a while because I was restricting myself to a
+chosen plaintext that was 16 bytes long. This is not necessary in
+order to complete the attack as written, though servers deployed in
+the real world may have length requirements on the strings that they
+allow to be processed.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Challenge 13</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+This is a <a href="https://en.wikipedia.org/wiki/Known-plaintext_attack">known plaintext attack</a>. In some sense, Challenge 13 is the
+natural follow up to Challenge 12.  If we successfully attacked a
+server in Challenge 12, we would now know how the encrypted session
+cookie is formatted.  Knowing the fact that in ECB mode, the same
+ciphertext block decrypts to the same plaintext block can allow us to
+give ourselves admin access using a carefully crafted session cookie
+derived from the server.  If our plaintext is:
+</p>
+<pre class="example">
+0123456789ABCDEF
+----------------
+email=fooAA@bar.
+com&amp;uid=10&amp;role=
+user
+</pre>
+<p>
+If we took the second block, it would decrypt to a block of text with
+the string <tt>"role="</tt> at the end.  Now if we
+could get the server to issue us with a string that decrypted to
+<tt>"admin"</tt>, then we could concatenate the two
+cipher texts and have a string that when decrypted gave the
+<tt>"role=admin"</tt> pair.  This would give us a
+session token (albeit mangled) which would give us the admin role.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Challenge 16</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+As alluded to earlier, this is the famous CBC bit-flipping attack.  It
+exploits the fact that when we decrypt in CBC, we XOR the preceding
+cipher text with the plaintext.  Bit-flipping attacks are viable
+whenever we XOR the plaintext with anything in the
+encryption/decryption process.  If we flip a bit in the cipher text
+block that is being XORed (C[i-1] for P[i]), then we make a one bit
+edit in P[i] (and ruin C[i-1]).  We'll see more bit-flipping attacks
+soon.  The only challenging thing here is figuring out how to get the
+bit flips to line up and make the edits you want. There's a nice
+formula for editing bytes which comes up in the CBC padding oracle
+attack in Set 3:
+</p>
+\begin{equation}
+b_i = b_i \oplus p_i \oplus p_i'
+\end{equation}
+<p>
+In this case, we know \(p_i\) (we control that part of the plaintext),
+\(p_i'\) is the byte that we want to change it to (a disallowed
+character say) and \(b_i\) is the cipher text byte in the block previous
+to the plaintext byte we're editing.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Conclusion</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Set 2 is pretty lightweight.  A lot of what we're doing in these
+challenges is setting up more intense attacks for set 3.  Set 2 really
+underscores the fact that ECB yields a surprising amount of
+information in the cipher texts if you have any control of the
+plaintext.  Now that we're all warmed up for Set 3, we should be ready
+to go.
+</p>
+
+<p>
+If you have any comments, you can tweet me <a href="https://twitter.com/dbjergaard">@dbjergaard</a>.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

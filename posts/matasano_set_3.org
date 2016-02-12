@@ -1,0 +1,101 @@
+#+include: frontmatter.org org
+#+TITLE: Matasano Crypto Challenges Set 3
+#+HTML_MATHJAX: align:"left" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
+- Started writing: <2016-02-12 Fri>
+- Posted: <2016-02-12 Fri>
+- Estimated time to read: 10 minutes
+* Set 3
+This set wraps up the CBC portion of our attacks and covers the
+importance of cryptographically strong pseudo-random number (CSPRNG)
+generators.  There's a lot of meat in this one, but nothing terribly
+new until we get to Challenge 21.
+
+** Challenge 17
+This is a great attack, and it relies on something we setup and tested
+in set 2, namely that the CBC block we're decrypting has valid
+padding.  This is our first [[https://en.wikipedia.org/wiki/Ciphertext-only_attack][ciphertext only attack]], its also our first
+exposure to a [[https://en.wikipedia.org/wiki/Side-channel_attack][side-channel leak]].  Its important to realize that a
+side-channel attack exploits information that depends on the
+encryption procedure, but it does not attack the encryption procedure
+directly.  Side-channel attacks can be prevented by securing the
+information leaked, in this case, the fact that the padding is invalid
+should not be exposed to our adversaries.
+
+The attack procedure itself is outlined very well on the [[https://en.wikipedia.org/wiki/Padding_oracle_attack][wikipedia
+page]], so I won't go over too much of the specifics (annoying I know,
+but the article really does cover it at the right level). We've used
+an oracle before in Challenge 11, but this is the first time its front
+and center.  Oracle's in cryptanalysis are appropriately named because
+they tell us something about the ciphertext without giving us the
+plaintext back.  In this specific case, the oracle is telling us if
+the submitted ciphertext has valid padding of the plaintext.  Through
+successive edits to the ciphertext (in order to create valid padding)
+we are able to extract the plaintext bytes.
+
+In real world applications, the oracle is typically a remote server
+where we can submit cipher texts and observe the server's response.
+The server has a vested interest in not exposing the plaintext, but it
+may leak information about the decryption that we as attackers can
+exploit.
+
+** Challenge 18
+AES-CTR is our first stream cipher.  The idea is to use the output of
+AES-ECB when encrypting the result of a running counter and a key.
+This generates a stream of random looking bits that we can use to XOR
+against an input string.  As soon as we see the XOR part of the
+operation, alarm bells should ring that bit-flipping attacks are
+available.  What we're doing here is using AES-ECB as a CSPRNG.
+** Challenge 19-20
+The next two challenges are related. The first sets up our intuition
+about guessing the keystream when its re-used, and the second
+(Challenge 20) is a throwback to the repeating-key XOR from Set 1.
+(You remember that right?) all the same techniques still apply, so
+dust of your code from Set 1 and knock these two out quickly.
+** Challenge 21
+I became obsessed with Challenge 21-23 for a time.  I [[./untempering_mersenne_twister.org][wrote about it
+previously]], so I won't repeat myself. Challenge 21 is simply
+implementing the algorithm, it goes pretty quick.  You'll want to at
+least implement it yourself following pseudocode or translating from a
+different language to get a feel for how its going.  
+** Challenge 22
+The key idea here is to set the MTRNG up with an unknown timestamp,
+and then discover it by trying successive seeds in another MTRNG until
+you get the same output as the MTRNG with the unknown seed.  The
+problem suggests that you wait (as you would have to do if the MTRNG
+was on a remote server) and then try to clone the output, but I was
+lazy.
+** Challenge 24
+If we do Challenge 24 given the parameters of the challenge, then the
+MTRNG is easily crackable (the key space (2^16) is really small) and
+the follow-up exercise (password reset token) is seeded by the current
+timestamp. This doesn't do justice to the MTRNG as a CSPRNG.
+Challenges 20-23 systematically broke the MTRNG as a cryptographic
+construct, but they rely on the attacker recovering the entire 32 bit (or
+64 bit) output of the algorithm.  
+
+If the attacker only has access to the first 8 bits of the output, it
+is impossible to recover the internal state.  Then the security lies
+only in the key.  In this problem, the keyspace is too small.  Even if
+we expanded our keyspace to be 32 or 64 bit single-integer seeds, then
+our attack would still take as long as it took our implementation to
+try each possible integer seed.
+
+Instead, it is possible to seed the MTRNG's internal state with 628
+32bit integers with a suitable amount of entropy, and use the
+resulting output as a secure key-stream.  Now the key space has grown
+considerably (2^(628*32) to be exact), and it is no longer feasible to
+try to clone the stream even on modern hardware.
+
+* Conclusion
+That wraps up Set 3.  We've finished our coverage of block crypto and
+gotten our feet wet with stream crypto.  We anticipate CTR bitflipping
+attacks.  Additionally we've covered a lot of the [[https://en.wikipedia.org/wiki/Attack_model][main attack models]]
+in cryptanalysis. At this point we've got a lot of the infrastructure
+code set up so that doing the challenges in Set 4 can re-use our
+existing idioms.  If not, now is a good time to refactor and write
+tests so that you can verify that your changes aren't breaking things.
+Looking forward to Set 4, we'll need a lot of code to simulate servers
+in various settings that all do similar things, so having a server
+baseclass is useful. 
+
+If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].

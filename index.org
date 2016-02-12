@@ -2,6 +2,8 @@
 #+INCLUDE: frontmatter.org
 * Random Ramblings
 - [[./posts/matasano_set_1.org][Matasano Crypto Challenges Set 1]]
+- [[./posts/matasano_set_2.org][Matasano Crypto Challenges Set 2]]
+- [[./posts/matasano_set_3.org][Matasano Crypto Challenges Set 3]]
 - [[file:posts/untempering_mersenne_twister.org][Untempering the Mersenne Twister]]
 - [[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
 - [[file:posts/bucket-list.org][Programming Bucket List]]

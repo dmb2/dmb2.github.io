@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Matasano Crypto Challenges Set 3</title>
+<!-- 02/12/2016 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Bjergaard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Matasano Crypto Challenges Set 3</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><a href="../index.html">Home</a></td>
+<td class="left"><a href="../about.html">About</a></td>
+<td class="left"><a href="../gallery.html">Gallery</a></td>
+<td class="left"><a href="../links.html">Links</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>Started writing: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-12 Fri&gt;</span></span>
+</li>
+<li>Posted: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-12 Fri&gt;</span></span>
+</li>
+<li>Estimated time to read: 10 minutes
+</li>
+</ul>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Set 3</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This set wraps up the CBC portion of our attacks and covers the
+importance of cryptographically strong pseudo-random number (CSPRNG)
+generators.  There's a lot of meat in this one, but nothing terribly
+new until we get to Challenge 21.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Challenge 17</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+This is a great attack, and it relies on something we setup and tested
+in set 2, namely that the CBC block we're decrypting has valid
+padding.  This is our first <a href="https://en.wikipedia.org/wiki/Ciphertext-only_attack">ciphertext only attack</a>, its also our first
+exposure to a <a href="https://en.wikipedia.org/wiki/Side-channel_attack">side-channel leak</a>.  Its important to realize that a
+side-channel attack exploits information that depends on the
+encryption procedure, but it does not attack the encryption procedure
+directly.  Side-channel attacks can be prevented by securing the
+information leaked, in this case, the fact that the padding is invalid
+should not be exposed to our adversaries.
+</p>
+
+<p>
+The attack procedure itself is outlined very well on the <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack">wikipedia
+page</a>, so I won't go over too much of the specifics (annoying I know,
+but the article really does cover it at the right level). We've used
+an oracle before in Challenge 11, but this is the first time its front
+and center.  Oracle's in cryptanalysis are appropriately named because
+they tell us something about the ciphertext without giving us the
+plaintext back.  In this specific case, the oracle is telling us if
+the submitted ciphertext has valid padding of the plaintext.  Through
+successive edits to the ciphertext (in order to create valid padding)
+we are able to extract the plaintext bytes.
+</p>
+
+<p>
+In real world applications, the oracle is typically a remote server
+where we can submit cipher texts and observe the server's response.
+The server has a vested interest in not exposing the plaintext, but it
+may leak information about the decryption that we as attackers can
+exploit.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Challenge 18</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+AES-CTR is our first stream cipher.  The idea is to use the output of
+AES-ECB when encrypting the result of a running counter and a key.
+This generates a stream of random looking bits that we can use to XOR
+against an input string.  As soon as we see the XOR part of the
+operation, alarm bells should ring that bit-flipping attacks are
+available.  What we're doing here is using AES-ECB as a CSPRNG.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Challenge 19-20</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+The next two challenges are related. The first sets up our intuition
+about guessing the keystream when its re-used, and the second
+(Challenge 20) is a throwback to the repeating-key XOR from Set 1.
+(You remember that right?) all the same techniques still apply, so
+dust of your code from Set 1 and knock these two out quickly.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Challenge 21</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+I became obsessed with Challenge 21-23 for a time.  I <a href="./untempering_mersenne_twister.html">wrote about it
+previously</a>, so I won't repeat myself. Challenge 21 is simply
+implementing the algorithm, it goes pretty quick.  You'll want to at
+least implement it yourself following pseudocode or translating from a
+different language to get a feel for how its going.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Challenge 22</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+The key idea here is to set the MTRNG up with an unknown timestamp,
+and then discover it by trying successive seeds in another MTRNG until
+you get the same output as the MTRNG with the unknown seed.  The
+problem suggests that you wait (as you would have to do if the MTRNG
+was on a remote server) and then try to clone the output, but I was
+lazy.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Challenge 24</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+If we do Challenge 24 given the parameters of the challenge, then the
+MTRNG is easily crackable (the key space (2<sup>16</sup>) is really small) and
+the follow-up exercise (password reset token) is seeded by the current
+timestamp. This doesn't do justice to the MTRNG as a CSPRNG.
+Challenges 20-23 systematically broke the MTRNG as a cryptographic
+construct, but they rely on the attacker recovering the entire 32 bit (or
+64 bit) output of the algorithm.  
+</p>
+
+<p>
+If the attacker only has access to the first 8 bits of the output, it
+is impossible to recover the internal state.  Then the security lies
+only in the key.  In this problem, the keyspace is too small.  Even if
+we expanded our keyspace to be 32 or 64 bit single-integer seeds, then
+our attack would still take as long as it took our implementation to
+try each possible integer seed.
+</p>
+
+<p>
+Instead, it is possible to seed the MTRNG's internal state with 628
+32bit integers with a suitable amount of entropy, and use the
+resulting output as a secure key-stream.  Now the key space has grown
+considerably (2<sup>(628*32)</sup> to be exact), and it is no longer feasible to
+try to clone the stream even on modern hardware.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Conclusion</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+That wraps up Set 3.  We've finished our coverage of block crypto and
+gotten our feet wet with stream crypto.  We anticipate CTR bitflipping
+attacks.  Additionally we've covered a lot of the <a href="https://en.wikipedia.org/wiki/Attack_model">main attack models</a>
+in cryptanalysis. At this point we've got a lot of the infrastructure
+code set up so that doing the challenges in Set 4 can re-use our
+existing idioms.  If not, now is a good time to refactor and write
+tests so that you can verify that your changes aren't breaking things.
+Looking forward to Set 4, we'll need a lot of code to simulate servers
+in various settings that all do similar things, so having a server
+baseclass is useful. 
+</p>
+
+<p>
+If you have any comments, you can tweet me <a href="https://twitter.com/dbjergaard">@dbjergaard</a>.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
