@@ -23,13 +23,13 @@ configuring a machine of infinite possibility. Mel's program played blackjack wi
 potential customers.
 
 While there is no hard evidence, it is likely that Mel is Mel Kaye. He
-wrote a [[compiler%20for%20the%20LGP-30][compiler for the LGP-30]]. For the purposes of this
-article I'm going focus on Mel's method (writing in hex).
-Mel's method makes it impossible for another programmer to pick
-up and immediately understand.   Other RPC-4000 programmers
-were capable of dissecting his code to understand his meaning. In
-writing in the raw hexadecimal[fn:1] Mel obfuscates his meaning.  This
-completely removes the human element from his task.
+wrote a [[https://en.wikipedia.org/wiki/LGP-30][compiler for the LGP-30]]. For the purposes of this article I'm
+going focus on Mel's method (writing in hex).  Mel's method makes it
+impossible for another programmer to pick up and immediately
+understand.  Other RPC-4000 programmers were capable of dissecting his
+code to understand his meaning, but not without significant effort. In
+writing in the raw hexadecimal[fn:1] Mel obfuscates his meaning.  The
+human element is completely removed from his task.
 
 Computer programs are expressions of ideas first, and produce results
 when run on machines second.  If this order is confused, or the first
@@ -52,11 +52,12 @@ understands[fn:2]. If we take this attitude when writing code then
 becomes an exercise in editing.
 
 Taking this perspective, instead of the success condition being "it
-does what I want". A well as "if it ain't broke don't fix it," there is a
-framework for how to approach development.  The idea is to approach code the way you approach literature. Your first
-draft is getting your ideas on the page. Editing from the first draft
-replaces "once it works I'm done." You would never publish the
-first draft of anything.  In the same way that you should never publish the first
+does what I want". A well as "if it ain't broke don't fix it," there
+is a framework for how to approach development.  The idea is to
+approach code the way you approach literature. Your first draft is
+getting your ideas on the page. Editing from the first draft replaces
+"once it works I'm done." You would never publish the first draft of
+anything.  In the same way that you should never publish the first
 working version of a program.  In the parlance of test driven design,
 this is the refactor of "[[http://www.jamesshore.com/Blog/Red-Green-Refactor.html][Red, Green, Refactor]]".
 
@@ -67,11 +68,12 @@ understandable by humans. It is where and how Mel's tricks should be
 used that make the difference.  
 
 One of the amazing things about a computer is how it is suited for
-layers of abstraction.  One can follow these layers up and down. At one level you can reason about problems in number theory. At another you can look
-at how the silicone is laid out to allow a particular junction to
-work. In Mel's case he would be able to take advantage of the system's quirks in the compiler.
-Everyone would benefit
-from Mel's low level understanding of the system.
+layers of abstraction.  One can follow these layers up and down. At
+one level you can reason about problems in number theory. At another
+you can look at how the silicone is laid out to allow a particular
+junction to work. In Mel's case he would be able to take advantage of
+the system's quirks in the compiler.  Everyone would benefit from
+Mel's low level understanding of the system.
 
 For instance,Mel exploited the time it took for the drum memory to
 rotate to avoid a time-delay loop when interfacing with the
