@@ -37,7 +37,7 @@ What this means is, don't write your code to depend on the string
 representation of the hex values. Put another way: always operate on
 unsigned integers ranging from 0 to 255.  
 ** Challenge 3
-Challenge 3 is the first time we have to discover a secret given a
+[[http://cryptopals.com/sets/1/challenges/3/][Challenge 3]] is the first time we have to discover a secret given a
 cipher text.  The single byte XOR, is another name for the Ceasar
 cipher.  Since the key is a single byte, there are only 255
 possible key values. This makes it very simple to test all possible
@@ -69,14 +69,14 @@ These histograms should be normalized so that the sum of their bin
 values is 1.  If you don't think in terms of histograms and bins, then
 look at it as $O_i$ is the probability that you observe the
 $i^{\text{th}}$ letter of your alphabet.  In this challenge, and
-challenge 6, the alphabet used is important.  One that works is $A$ =
+[[http://cryptopals.com/sets/1/challenges/6/][Challenge 6]], the alphabet used is important.  One that works is $A$ =
 { =a-z=, ' '}. It doesn't matter what alphabet you choose as long as
 you are consistent in your definitions for $O_i$ and $E_i$.
 
 ** Challenge 6
-Challenge 4 exercises the code and concepts you developed in
-challenge 3.  Challenge 5 sets up the code you need for
-challenge 6. Challenge 6 is the challenge that tests your ability to
+[[http://cryptopals.com/sets/1/challenges/4/][Challenge 4]] exercises the code and concepts you developed in
+[[http://cryptopals.com/sets/1/challenges/3/][Challenge 3]]. [[http://cryptopals.com/sets/1/challenges/5/][Challenge 5]] sets up the code you need for
+[[http://cryptopals.com/sets/1/challenges/6/][Challenge 6]]. Challenge 6 is the challenge that tests your ability to
 make multiple pieces of code work together to produce a result greater
 than the sum of its pieces.  The challenge text does a good job of
 outlining the strategy and if you have consistent definitions in place
@@ -176,7 +176,7 @@ lengths. Something special happens when we guess $L=6$ in our example
 \begin{equation}
 H(K[0:6],K[6:12])=0
 \end{equation}
-but we don't or have the key yet, all we have is the cipher text:
+but we don't have the key yet, all we have is the cipher text:
 \begin{equation}
 H(C[0:6],C[6:12])=15
 \end{equation}
@@ -200,7 +200,7 @@ coming in the next set.  Challenge 7 forces us to figure out how to
 use OpenSSL in our language of choice, and Challenge 8 introduces us
 to an important feature of AES in ECB (Electronic Code Book) mode.  In
 ECB, identical 16 bytes of plaintext will encode to the same 16 byte
-cipher text.  
+cipher text (remember: 128 bits = 16 bytes).  
 
 As the challenges state, if you can make it through Challenge 6, then
 you're qualified to finish all 6 sets.  The later sets will require

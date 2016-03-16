@@ -1,0 +1,31 @@
+#+include: frontmatter.org org
+#+TITLE: Customizing Emacs's modeline
+- Started writing: <2016-03-11 Fri>
+- Posted: 
+- Estimated time to read: 
+
+* Introduction
+As disciples of Emacs we are constantly working to build an ecosystem
+of elisp which supports our editing styles.  As we enable various
+major and minor modes, Emacs tries to do its best to give us reminders
+of which modes are enabled for the current buffer.  I firmly believe
+that a UI should work hard provide as much relevant information as
+possible without distracting from the user's focus.  The UI should
+also be as intuitive as possible, allowing the user to self-discover
+additional functionality as they learn the system.
+
+Emacs is definitely not intuitive, but once a user is accustomed to
+the environment, it really wins when it comes to self-discovery of
+extra features.  Out of the box however, there is a significant amount
+of visual noise.  Inspired by [[http://emacs-doctor.com/emacs-strip-tease.html][Emacs, naked]], I stripped down my
+interface.  Two things that bothered me: the wide fringe and no
+mode-line. On the other end of the spectrum is Spacemacs and
+powerline.  These provide as much information as possible.  Of course
+there's also diminish, which allows you to tell emacs which minor
+modes to show and and not.  The trouble with diminish is that it never
+played well with my =.emacs= when Emacs is run as a daemon (I know
+there are workarounds, but they bothered me).
+
+After some serious contemplation about which pieces of information in
+the mode-line were most important to me, I set about trimming it down
+to size. 

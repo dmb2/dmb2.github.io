@@ -1,0 +1,72 @@
+#+include: frontmatter.org org
+#+TITLE: Matasano Crypto Challenges Set 4
+#+HTML_MATHJAX: align:"left" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
+- Started writing: <2016-03-15 Tue>
+- Posted: 
+- Estimated time to read: 15 min
+* Introduction
+As stated in the executive summary for [[http://cryptopals.com/sets/4/][Set 4]], this set covers message
+authentication.  Looking at the big picture, this set covers how you
+mitigate bit flipping attacks that we encountered in the previous
+sets.  This is also the last set of block cipher cryptography so it is
+useful to take lightning tour of how far we've come from Set 1.
+
+We began by breaking our first serious cipher (the repeating key XOR)
+completely.  Incidentally, many malware authors will only employ this
+[[http://crucialsecurityblog.harris.com/2011/07/06/decoding-data-exfiltration-%25E2%2580%2593-reversing-xor-encryption/][level of obfuscation to their code]], expecting it to provide adequate
+security. Next AES-ECB was introduced, a strong block cipher in
+"Electronic Code Book" mode.  Since the cipher acts as a codebook, we
+have the property that blocks of plaintext that are the same encode to
+cipher text blocks that are also the same.  This meant that we could
+recover the plaintext if we could control part of the unknown string
+and build a dictionary of all possible AES blocks.
+
+This dictionary based attack was mitigated by the introduction of
+AES-CBS (Cipher Block Chaining) where we scrambled the plaintext with
+the previous ciphertext before encrypting with AES-ECB.  In plugging
+one hole, AES-CBC is open to another, bit-flipping attacks.  Here the
+cryptanalyst can manipulate the cipher text.  This provides two attack
+vectors, the first allowing us to edit the underlying plaintext. The
+second allows us to recover the plaintext if the validity of the
+padding is leaked to us. An additional exploit is possible if the key
+is re-used as the IV (Initialization Vector) of CBC.  Since the
+cryptanalyst controls the first block of cipher text, it is possible
+to extract the IV (and subsequently the key) allowing complete
+decryption of the cipher text.
+
+Having exhausted available attacks in AES-CBC, we turned to various
+stream ciphers.  The goal of any stream cipher is to provide a
+pseudo-random string of bits which is indistinguishable from a truly
+random bitstream.  This bitstream is then XOR'ed with our plaintext
+bitstream to produce our cipher text.  AES-CTR (CounTeR) is the AES
+mode which produces a stream cipher.  Since XOR is being used, we're
+still vulnerable to bit-flipping attacks.  We also learn that we
+cannot re-use a nonce (which is a number only to be used once).  When
+a keystream is used to encrypt multiple plaintexts, it is possible to
+use the techniques developed to break the repeating key XOR cipher
+against the keystream. The final part of Set 3 explores using
+pseudo-random numbers directly and exposes some common implementation
+flaws associated with discovering the internal state of the PRNG.
+
+Having learned about the common attacks against block and stream
+ciphers, and the information that can be coerced from flawed
+implementations we focus on message authentication codes (MACs) in
+Set 4.  Message authentication mitigates many of the attacks we have
+encountered so far, specifically the bit-flipping attacks that arise
+any time XOR is used in the encryption process, as well as ECB
+cut-and-paste.  The idea is to create a digital signature which is
+unique to the plaintext.  If this is sent with the ciphertext, and the
+cipher text is modified in transit, the new plaintext's signature
+won't match the original.  We will see that it is possible to forge
+MAC's unless we use a slightly modified construction (HMAC).  A naive
+implementation of HMAC leaks timing information which we will exploit
+to forge the signature of a file.  
+
+* Set 4
+** Challenge 25, 27
+The key insights in challenge 25 and 27 are the fact that 
+
+
+* Conclusion
+
+If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
