@@ -22,17 +22,18 @@ recover the plaintext if we could control part of the unknown string
 and build a dictionary of all possible AES blocks.
 
 This dictionary based attack was mitigated by the introduction of
-AES-CBS (Cipher Block Chaining) where we scrambled the plaintext with
+AES-CBC (Cipher Block Chaining) where we scrambled the plaintext with
 the previous ciphertext before encrypting with AES-ECB.  In plugging
 one hole, AES-CBC is open to another, bit-flipping attacks.  Here the
-cryptanalyst can manipulate the cipher text.  This provides two attack
-vectors, the first allowing us to edit the underlying plaintext. The
-second allows us to recover the plaintext if the validity of the
-padding is leaked to us. An additional exploit is possible if the key
-is re-used as the IV (Initialization Vector) of CBC.  Since the
-cryptanalyst controls the first block of cipher text, it is possible
-to extract the IV (and subsequently the key) allowing complete
-decryption of the cipher text.
+cryptanalyst can manipulate the cipher text providing two attack
+vectors. The first allows us to edit the underlying plaintext,
+scrambling one block and editing the subsequent block. The second
+allows us to recover the plaintext if the validity of the padding is
+leaked to us. An additional exploit is possible if the key is re-used
+as the IV (Initialization Vector) of CBC.  Since the cryptanalyst
+controls the first block of cipher text, it is possible to extract the
+IV (and subsequently the key) allowing complete decryption of the
+cipher text.
 
 Having exhausted available attacks in AES-CBC, we turned to various
 stream ciphers.  The goal of any stream cipher is to provide a

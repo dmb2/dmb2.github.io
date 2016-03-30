@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Customizing Emacs's modeline</title>
+<!-- 03/30/2016 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Bjergaard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Customizing Emacs's modeline</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><a href="../index.html">Home</a></td>
+<td class="left"><a href="../about.html">About</a></td>
+<td class="left"><a href="../gallery.html">Gallery</a></td>
+<td class="left"><a href="../links.html">Links</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>Started writing: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-11 Fri&gt;</span></span>
+</li>
+<li>Posted: 
+</li>
+<li>Estimated time to read: 
+</li>
+</ul>
+
+<p>
+As disciples of Emacs we are constantly working to build an ecosystem
+of elisp which supports our editing styles.  As we enable various
+major and minor modes, Emacs tries to do its best to give us reminders
+of which modes are enabled for the current buffer.  I firmly believe
+that a UI should work hard provide as much relevant information as
+possible without distracting from the user's focus.  The UI should
+also be as intuitive as possible, allowing the user to self-discover
+additional functionality as they learn the system.
+</p>
+
+<p>
+Emacs is definitely not intuitive, but once a user is accustomed to
+the environment, it really wins when it comes to self-discovery of
+extra features.  Out of the box however, there is a significant amount
+of visual noise.  Inspired by <a href="http://emacs-doctor.com/emacs-strip-tease.html">Emacs, naked</a>, I stripped down my
+interface.  Two things that bothered me in following "Emacs, naked":
+the wide fringe and no mode-line. On the other end of the spectrum is
+<a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a> and <a href="https://www.emacswiki.org/emacs/PowerLine">powerline</a>.  These provide as much information as
+possible.  Of course there's also <a href="https://www.emacswiki.org/emacs/DiminishedModes">diminish</a>, which allows you to tell
+emacs which minor modes to show and and not.  The trouble with
+diminish is that it never played well with my <code>.emacs</code> when Emacs is
+run as a daemon (I know there are workarounds, but they bothered me).
+</p>
+
+<p>
+After some serious contemplation about which pieces of information in
+the mode-line were most important to me, I set about trimming it down
+to size. 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Comparison of default to customized UIs</caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><img src="emacs-default-ui_small.png" alt="emacs-default-ui_small.png" /></td>
+<td class="left"><img src="emacs-customized-ui_small.png" alt="emacs-customized-ui_small.png" /></td>
+</tr>
+
+<tr>
+<td class="left">Default UI</td>
+<td class="left">Customized UI</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+If you want my mode-line without any further understanding stick this
+in your <code>.emacs</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq-default mode-line-format
+      (list
+       <span style="color: #2aa198;">" "</span> mode-line-modified
+       <span style="color: #2aa198;">" %["</span> mode-line-buffer-identification <span style="color: #2aa198;">"%] %l %6 "</span>
+       mode-line-misc-info
+       mode-line-end-spaces))
+(setq global-mode-string '((t jabber-activity-mode-string)
+                          <span style="color: #2aa198;">""</span> display-time-string appt-mode-string))
+</pre>
+</div>
+
+<p>
+Since the mode-line is so fundamental to emacs, we have to set the
+format string slightly different than other variables.  This is
+achieved through <code>setq-default</code>.  The documentation does a pretty good
+job of describing what the various options are, but it was not clear
+to me how to achieve the interactivity of the default mode-line. 
+</p>
+
+<p>
+In my minimal setup, the <code>car</code> of the list is " ", which is a string.
+This tells emacs to process the rest of the list and concatenate the
+results into a string to be displayed in the mode-line.  The next
+element of this list is <code>mode-line-modified</code>, which when eval'ed gives
+the modification state of the mode-line, but also provides the ability
+to use the mouse to toggle the states. The next string prints a "["
+for each recursive editing level entered.  Next
+<code>mode-line-buffer-identification</code> gives the buffer name, and the
+ability to left and right click to cycle through the buffers. Then I
+close the number of recursive edits with "%]".  The last bit of
+information I find useful is the line number. If you prefer the
+original line information, the function to add is
+<code>mode-line-position</code>, this is too verbose for me, and I rarely need to
+look at the column, so I've replaced this with the "%l" directive
+which gives me the raw line number.  The next bit: "%6" gives 6
+spaces before any other functions add to the mode line.
+</p>
+
+<p>
+The next piece, <code>mode-line-misc-info</code>, includes the variable
+<code>global-mode-string</code> which is a catch-all for transient
+notifications.  The two that are relevant to me are:
+<code>jabber-activity-mode-string</code> which displays who has sent me an unread
+message on jabber, and <code>display-time-string</code> and <code>appt-mode-string</code>
+which display information when I have upcoming appointments in my
+agenda.  
+</p>
+</div>
+</body>
+</html>

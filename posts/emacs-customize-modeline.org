@@ -1,10 +1,9 @@
 #+include: frontmatter.org org
 #+TITLE: Customizing Emacs's modeline
 - Started writing: <2016-03-11 Fri>
-- Posted: 
-- Estimated time to read: 
+- Posted: <2016-03-30 Wed>
+- Estimated time to read: 5 min
 
-* Introduction
 As disciples of Emacs we are constantly working to build an ecosystem
 of elisp which supports our editing styles.  As we enable various
 major and minor modes, Emacs tries to do its best to give us reminders
@@ -18,14 +17,61 @@ Emacs is definitely not intuitive, but once a user is accustomed to
 the environment, it really wins when it comes to self-discovery of
 extra features.  Out of the box however, there is a significant amount
 of visual noise.  Inspired by [[http://emacs-doctor.com/emacs-strip-tease.html][Emacs, naked]], I stripped down my
-interface.  Two things that bothered me: the wide fringe and no
-mode-line. On the other end of the spectrum is Spacemacs and
-powerline.  These provide as much information as possible.  Of course
-there's also diminish, which allows you to tell emacs which minor
-modes to show and and not.  The trouble with diminish is that it never
-played well with my =.emacs= when Emacs is run as a daemon (I know
-there are workarounds, but they bothered me).
+interface.  Two things that bothered me in following "Emacs, naked":
+the wide fringe and no mode-line. On the other end of the spectrum is
+[[https://github.com/syl20bnr/spacemacs][Spacemacs]] and [[https://www.emacswiki.org/emacs/PowerLine][powerline]].  These provide as much information as
+possible.  Of course there's also [[https://www.emacswiki.org/emacs/DiminishedModes][diminish]], which allows you to tell
+emacs which minor modes to show and and not.  The trouble with
+diminish is that it never played well with my =.emacs= when Emacs is
+run as a daemon (I know there are workarounds, but they bothered me).
 
 After some serious contemplation about which pieces of information in
 the mode-line were most important to me, I set about trimming it down
 to size. 
+#+CAPTION: Comparison of default to customized UIs
+| [[file:emacs-default-ui_small.png]] | [[file:emacs-customized-ui_small.png]] |
+| Default UI                | Customized UI                |
+
+If you want my mode-line without any further understanding stick this
+in your =.emacs=:
+#+BEGIN_SRC emacs-lisp
+  (setq-default mode-line-format
+        (list
+         " " mode-line-modified
+         " %[" mode-line-buffer-identification "%] %l %6 "
+         mode-line-misc-info
+         mode-line-end-spaces))
+  (setq global-mode-string '((t jabber-activity-mode-string)
+                            "" display-time-string appt-mode-string)) 
+#+END_SRC
+
+Since the mode-line is so fundamental to emacs, we have to set the
+format string slightly different than other variables.  This is
+achieved through =setq-default=.  The documentation does a pretty good
+job of describing what the various options are, but it was not clear
+to me how to achieve the interactivity of the default mode-line. 
+
+In my minimal setup, the =car= of the list is " ", which is a string.
+This tells emacs to process the rest of the list and concatenate the
+results into a string to be displayed in the mode-line.  The next
+element of this list is =mode-line-modified=, which when eval'ed gives
+the modification state of the mode-line, but also provides the ability
+to use the mouse to toggle the states. The next string prints a "["
+for each recursive editing level entered.  Next
+=mode-line-buffer-identification= gives the buffer name, and the
+ability to left and right click to cycle through the buffers. Then I
+close the number of recursive edits with "%]".  The last bit of
+information I find useful is the line number. If you prefer the
+original line information, the function to add is
+=mode-line-position=, this is too verbose for me, and I rarely need to
+look at the column, so I've replaced this with the "%l" directive
+which gives me the raw line number.  The next bit: "%6" gives 6
+spaces before any other functions add to the mode line.
+
+The next piece, =mode-line-misc-info=, includes the variable
+=global-mode-string= which is a catch-all for transient
+notifications.  The two that are relevant to me are:
+=jabber-activity-mode-string= which displays who has sent me an unread
+message on jabber, and =display-time-string= and =appt-mode-string=
+which display information when I have upcoming appointments in my
+agenda.  
