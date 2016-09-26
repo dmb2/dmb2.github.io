@@ -1,0 +1,208 @@
+#+TITLE: David Bjergaard
+#+AUTHOR: David Bjergaard
+#+EMAIL: david.b@duke.edu
+#+OPTIONS:   H:2 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+STYLE:    <link rel="stylesheet" type="text/css" href="./style.css" />
+#+LaTeX_CLASS: article
+#+HTML_MATHJAX: align:"center" mathml:nil path:"../MathJax/MathJax.js"
+#+HTML:<br>
+#+HTML:<br>
+* Introduction
+#+BEGIN_HTML
+<img src="https://secure.gravatar.com/avatar/9dcf3befff787a5f1f850fc0990bc9f1?size=400px"></img>
+#+END_HTML
+I am a physicist at Duke University studying the production of charm
+quarks in hadron collisions at the Large Hadron Collider.  I have
+taught recitation sections and labs for the introductory courses in
+the Duke Physics department.  Below you will find my [[Philosophy of
+Teaching]] and my [[Curriculum Vitae]].  Throughout the document you will
+find links to additional material which may be of interest.
+
+I care deeply about communicating my work clearly, concisely and with
+good design. To that end I've been significantly influenced by:
+- [[http://practicaltypography.com/][Butterick's Practical Typography]]
+- The Visual Display of Quantitative Information - Edward Tufte
+* Philosophy of Teaching 
+I have had many instructors in the course of my education, and two
+stand out above all others in the impact that they have had on the way
+I approach learning and solving problems.  In reflecting on my personal
+teaching philosophy I have realized that these two instructors have
+also had a significant influence on how I view instructor-student
+interactions.  When I approached my high school calculus teacher about
+taking the course out of sequence without the prerequisite, his
+response was to offer after-hours help and give me the calculus
+textbook to study over the summer.  He emphasized strategy and
+efficient execution over rote memory and brute force.  During my
+freshman year of college, I failed my first physics midterm miserably.
+When I met with my professor he worked with me to develop an
+extra-curricular study plan, and offered time outside of office hours
+to meet and discuss homework problems.  Both of these instructors met
+me at my level, provided me with extra resources, and enabled me to
+succeed.
+
+In order to carry this forward, I believe that it is the
+responsibility of any teacher to provide as many resources to enable
+learning as possible.  This means providing multiple perspectives a
+topic, the one presented by the book, my perspective, and the a
+perspective supported by mathematics.  Office hours provided
+one-on-one interactions with students that allow me to refine my
+explanations of concepts that can be reincorporated into recitation
+instruction.  As recitation instructor for "Introduction to Physics
+for Engineers", I plan my lessons to complement lectures.  Students
+approach physics from different levels and backgrounds, and it is
+important for me to adapt to the student in order to enable efficient
+learning.  Some students require individual attention.  Sometimes this
+means explaining a concept in detail, and sometimes it means
+discussing test taking techniques that enable them to succeed.  I am
+available for individual meetings as well as office hours.
+
+Another aspect of meeting students on their level is the teacher's
+responsibility to provide a safe learning environment.  This means
+making mistakes part of the learning process.  This can be achieved in
+many different ways.  Small groups in office hours allow me to ask one
+student to explain to another how a concept works, and also allows
+students the opportunity to work in front of me so I can see their
+reasoning.  Individual meetings can address student anxieties that can
+be repressed in a more public classroom setting.  Another way to
+achieve a safe learning environment is to have students discuss some
+aspect of the problem with their peers in the classroom.  This starts
+a dialog that allows for peer learning, and it enables students to
+express their thinking out loud.  I ask students to discuss questions
+in groups of two or three, and then I move between the groups to
+facilitate discussions by asking students to explain their solution to
+me, or by clarifying and guiding groups that struggle.  Shuffling the
+groups from time to time in invigorates discussion and seems to have a
+positive impact on peer interactions.
+
+I believe that all students can master the material when they are held
+accountable, given adequate time, and are motivated.  Accountability
+means that the students' learning happens on their own account.  I
+engage in a question-answer dialogue, which leads the student through
+the problem, allowing them to come to the solution on their own.  I
+also check students homework when they struggle, ensuring it is
+completed and the solutions are communicated clearly.  Finally, I
+believe that the instructor should be as accountable as the student.
+Therefore, when I make an error on the board that a student catches
+and corrects, he or she receives a reward.
+
+One of the most valuable products of each semester I've taught is the
+student reviews.  They provide an unvarnished assessment of my
+teaching.  I pay careful attention to the written comments and do my
+best to incorporate changes to address them.  One comment I received
+during my first semester teaching was that I erased the board too
+quickly.  In subsequent semesters I now ask if anyone needs the board
+before erasing.  In my most recent semester teaching, students rated
+my confidence with the material lower than I had hoped.  On
+reflection, I think this was due to my questioning the students if my
+choice of problems were too difficult.  In future semesters I will
+find different ways to assess how the students are handling the
+material.  In future semesters I will solicit feedback midway to
+address problems before finding out about them after the fact.
+
+I have just begun my teaching career and the experiences I have had so
+far have been formative.  One of the best moments I had as a
+recitation instructor was when one of my students finally understood
+how static and kinetic friction are related to the normal force
+applied to an object.  This "A-Hah!" moment when a student makes the
+transition from confusion to understanding is why I teach.  In order
+to develop my ability to facilitate this moment, I am enrolled in the
+Certificate of College Teaching program at Duke.  I am developing my
+teaching skills so that one day I will have the same impact that my
+high school calculus teacher, and my freshman physics teacher had on
+me.
+* Curriculum Vitae
+- Address ::
+#+BEGIN_VERSE
+Duke University Dept. of Physics, 
+Physics Bldg, Science Dr. 
+Box 90305
+Durham, NC 27708
+#+END_VERSE
+- Email :: [[mailto:david.b@duke.edu][david.b@duke.edu]]
+- Website :: [[http://www.phy.duke.edu/~dmb60/][www.phy.duke.edu/~dmb60]]
+
+** Work Experience
+*** Graduate Research Duke University
+- August 2011 - Present
+  - Developed code and coauthored 2012 report of the state of the art
+    in Monte Carlo simulation of jet substructure variables
+  - Measured jet charge in W+jets events using ATLAS data 
+  - Restructured scheduling of realistic simulation of time-dependent
+    pileup in Monte Carlo (RunDMC) to make job completion time five
+    times more predictable.
+*** Undergraduate Research Johns Hopkins 
+- January 2008 - May 2011
+  - Developed software tools to aid in understanding early data
+    recorded by the Compact Muon Solenoid experiment
+  - Feasibility studies of measuring an undiscovered heavy particle
+    decaying to two relativistically boosted top quarks.
+** Education
+- Duke University :: Ph.D. Candidate in Physics, (expected) May 2016
+  - Advisor: Ayana Arce
+  - Thesis: Probing QCD bound states with jet substructure in the
+    charmonium system
+- Johns Hopkins University :: Bachelors of Science in Physics, May 2011
+** Publications 
+A. Altheimer et al., Boosted objects and jet substructure at the LHC,
+Nov 12, 2013. /Eur. Phys. J./ *C74* (2014) 2792, [[http://arxiv.org/abs/arXiv:1311.2708][arXiv:1311.2708]]
+
+Arce, A; Bjergaard, D; Nachman, B; Schwartzman, A; Swiatlowski, M. A
+Measurement of the Jet Charge in ATLAS, June 08, 2013. [[https://cds.cern.ch/record/1554095/][ATL-COM-PHYS-2013-729]].
+
+Phillips, R; Beeri, O; Scholljegerdes, E; Bjergaard, D; Hendrickson,
+J; Integration of geospatial and cattle nutrition information to
+estimate paddock grazing capacity in Northern US prairie, April 2009,
+/Agricultural Systems/ Volume *100* Issue 1-3, 27-79. DOI:
+[[http://www.sciencedirect.com/science/article/pii/S0308521X09000043][10.1016/j.agsy.2009.01.002]]
+
+** Skills
+*** Computing
+- C++, C, Python, Lisp, Ruby, HTML
+- Linux
+- Managing Open Source projects
+*** Research
+- Statistical Data Analysis
+- De-convolution methods
+- Scientific Computing methods
+** Certificates and Awards
+- June 2010 :: Provost Undergraduate Research Award for Z' Searches at the LHC,
+  $2500, Johns Hopkins University 
+- May 2011 :: \Sigma\Pi\Sigma Inductee awarded to top 10% of Physics Majors at
+  Johns Hopkins University
+- August 2015 :: Marie Curie Early Stage Researcher Fellowship
+                 
+** Mentoring Activities
+- Summer 2013 Mentored Scott Leiberman, TUNL REU student
+- Summer 2014 Mentored Max Krackow, TUNL REU student
+- Summer 2009 North Dakota Governor's School Counselor 
+- Summer 2008 North Dakota Governor's School Counselor 
+- Summer 2007 Peer Mentoring USDA Agricultural Research Service,
+  Mandan ND
+** Offices Held
+- Class Representative, Graduate Student Organization, Duke
+  University, 2013, 2015 
+- President, Graduate Student Organization, Duke University, 2014
+- President, Society of Physics Students, Johns Hopkins University,
+  2010
+- Vice President, Society of Physics Students, Johns Hopkins University,
+  2009
+- Outreach, Society of Physics Students, Johns Hopkins University,
+  2008
+- President, Chess Club, Johns Hopkins University, 2007
+** Outreach
+- Adopt-a-Physicist Fall 2012, 2013.
+- Physics Demonstrations, May 2014.
+- CERN Masterclass March 2013 and 2014
+- USATLAS trip to Washington DC to raise awareness of HEP research,
+  March 2013
+** Software Projects
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Hitchhiker's Guide to High Energy Physics]] - Documentation and
+  Example code for new students
+- [[https://github.com/dbjergaard/rivet-charmonium][Rivet Charmonium Studies]] - Rivet is a software framework for
+  studying Monte Carlo generators, this is code for creating plots of
+  substructure variables in charmonium events.
+- [[https://github.com/dbjergaard/rivet-jet-charge][Rivet Jet Charge Studies]] - Rivet code for BOOST 2012 analysis,
+  (including Condor steering infrastructure)
+- [[https://github.com/stumpwm/stumpwm][Stump Window Manager]] - Maintainer/Developer, A window manager
+  written in Common Lisp   

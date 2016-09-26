@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'Crimson Italic';
+    src: url('../font/crimson-italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Crimson Serif';
+    src: url('../font/crimson-roman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Crimson Semi-Bold';
+    src: url('../font/crimson-semibold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+    margin: 1em 0;
+}
+b, strong {
+  font-weight: bold;
+}
+code, kbd, pre, samp {
+  font-family:'Inconsolata' monospace, serif;
+  font-size: 1em;
+}
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+small {
+  font-size: 80%;
+}
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=Hammersmith+One);
+pre, code {
+  font-family: 'Inconsolata', sans-serif;
+}
+p {
+    text-align: justify;
+}
+
+h1.title{
+    color: #000000;
+    font-size: 300%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    color: #1F1F1F;
+}
+html {
+  color: #1f1f1f;
+  margin: 1em;
+}
+code {
+  padding: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: #001A57;
+}
+a:visited {
+  color: #0680CD;
+}
+a:hover {
+  color: #0736A4;
+}
+
+/* TOC inspired by http://jashkenas.github.com/coffee-script */
+#table-of-contents {
+    font-size: 16pt;
+    position: fixed;
+    right: 0em;
+    top: 0em;
+    background: white;
+    line-height: 18pt;
+    text-align: right;
+    /* ensure doesn't flow off the screen when expanded */
+    max-height: 80%;
+    overflow: auto;
+    z-index: 200;
+}
+#text-table-of-contents li{
+    font-family: 'Hammersmith One', sans-serif;
+    text-align: left;
+    list-style-type: none;
+}
+#table-of-contents h2 {
+    max-width: 13em;
+    border: 0;
+    font-weight: normal;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.05em; }
+#table-of-contents #text-table-of-contents {
+    padding: 0.5em;
+    margin-top: -1.5em;
+    display: block;
+    text-align: left;
+}
+
+pre {
+  background-color: #002b36;
+  color: #839496;
+  border: 1pt solid #93a1a1;
+  padding: 1em;
+  box-shadow: 5pt 5pt 8pt #4D4D4D;
+}
+pre code {
+  background-color: #fdf6e3;
+}
+h1 {
+  font-size: 2.8em;
+}
+h2 {
+  font-size: 2.4em;
+}
+h3 {
+  font-size: 1.8em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.3em;
+}
+h6 {
+  font-size: 1.15em;
+}
+.tag {
+  background-color: #eee8d5;
+  color: #d33682;
+  padding: 0 0.2em;
+}
+.tag {
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  border-radius: 0.35em;
+}
+
+#container
+{
+    margin: 0 auto;
+    width: 600px;
+}
+
+#header
+{
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#header h1 
+{ 
+    margin: 0 auto;
+}
+
+#content
+{
+    font-family: 'Crimson Serif', 'Times New Roman', serif;
+    font-size: 14.5pt;
+    line-height: 135%;
+    clear: center;
+    width: 35em;
+    padding: 20px;
+    margin: 0 auto;
+}
+#content h2
+{
+    font-size: 200%;
+    margin: 0 0 .5em;
+}
+
+#postamble
+{
+    visibility: hidden;
+    text-align: right;
+    padding: 20px;
+    height: 1%;
+}
+
+div.figure {
+  float: center;
+  width: 61%;
+  border: thin silver solid;
+  margin: 0.5em;
+  padding: 0.5em;
+  transition:width 1s, height 1s;
+  -moz-transition:width 1s, height 1s, -moz-transform 1s; /* Firefox 4 */
+  -webkit-transition:width 1s, height 1s, -webkit-transform 1s; /* Safari and Chrome */
+  -o-transition:width 1s, height 1s, -o-transform 1s; /* Opera */
+}
+div.figure p {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}
+div.figure:hover {
+    width:800px;
+    height:600px;
+}
+img {
+    float: left;
+    margin: 1.2em;
+    width: 25%;
+}
+img.scaled {
+    width: 100%;
+}
