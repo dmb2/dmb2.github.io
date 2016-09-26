@@ -75,3 +75,11 @@ notifications.  The two that are relevant to me are:
 message on jabber, and =display-time-string= and =appt-mode-string=
 which display information when I have upcoming appointments in my
 agenda.  
+
+Once you understand the bits and pieces of elisp that make up the
+=mode-line-format= variable, you can tweak them to include just the
+bits that are useful to you. This allows the UI to provide the minimal
+amount of information needed for the user to get his or her work done
+expeditiously. 
+
+If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
