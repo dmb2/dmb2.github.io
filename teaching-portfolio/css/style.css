@@ -84,10 +84,11 @@ a:hover {
 #table-of-contents {
     font-size: 16pt;
     position: fixed;
-    right: 0em;
+    left: 0em;
     top: 0em;
+    width: 20%;
     background: white;
-    line-height: 18pt;
+    line-height: 135%;
     text-align: right;
     /* ensure doesn't flow off the screen when expanded */
     max-height: 80%;
@@ -103,6 +104,8 @@ a:hover {
     max-width: 13em;
     border: 0;
     font-weight: normal;
+    text-align: center;
+    line-height: 105%;
     padding-left: 0.5em;
     padding-right: 0.5em;
     padding-top: 0.5em;
@@ -113,7 +116,10 @@ a:hover {
     display: block;
     text-align: left;
 }
-
+href.sec-1 {
+    font-weight: normal;
+    color: #FF0000;
+}
 pre {
   background-color: #002b36;
   color: #839496;
@@ -178,7 +184,7 @@ h6 {
     clear: center;
     width: 35em;
     padding: 20px;
-    margin: 0 auto;
+    margin: 0 20% auto;
 }
 #content h2
 {
@@ -194,27 +200,6 @@ h6 {
     height: 1%;
 }
 
-div.figure {
-  float: center;
-  width: 61%;
-  border: thin silver solid;
-  margin: 0.5em;
-  padding: 0.5em;
-  transition:width 1s, height 1s;
-  -moz-transition:width 1s, height 1s, -moz-transform 1s; /* Firefox 4 */
-  -webkit-transition:width 1s, height 1s, -webkit-transform 1s; /* Safari and Chrome */
-  -o-transition:width 1s, height 1s, -o-transform 1s; /* Opera */
-}
-div.figure p {
-  text-align: center;
-  font-style: italic;
-  font-size: smaller;
-  text-indent: 0;
-}
-div.figure:hover {
-    width:800px;
-    height:600px;
-}
 img {
     float: left;
     margin: 1.2em;
