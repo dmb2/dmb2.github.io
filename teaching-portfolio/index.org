@@ -19,25 +19,32 @@ the Duke Physics department.  Below you will find my [[Philosophy of
 Teaching]] and my [[Curriculum Vitae]].  Throughout the document you will
 find links to additional material which may be of interest.
 
-I care deeply about communicating my work clearly, concisely and with
-good design. To that end I've been significantly influenced by:
-- [[http://practicaltypography.com/][Butterick's Practical Typography]]
-- The Visual Display of Quantitative Information - Edward Tufte
+* Software Projects
+Other projects I've been involved with include:
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Hitchhiker's Guide to High Energy Physics]] - Documentation and
+  Example code for new students
+- [[https://github.com/dbjergaard/rivet-charmonium][Rivet Charmonium Studies]] - Rivet is a software framework for
+  studying Monte Carlo generators, this is code for creating plots of
+  substructure variables in charmonium events.
+- [[https://github.com/dbjergaard/rivet-jet-charge][Rivet Jet Charge Studies]] - Rivet code for BOOST 2012 analysis,
+  (including Condor steering infrastructure)
+- [[https://github.com/stumpwm/stumpwm][Stump Window Manager]] - Maintainer/Developer, A window manager
+  written in Common Lisp   
 * Philosophy of Teaching 
 I have had many instructors in the course of my education, and two
 stand out above all others in the impact that they have had on the way
-I approach learning and solving problems.  In reflecting on my personal
+I approach learning and solving problems. In reflecting on my personal
 teaching philosophy I have realized that these two instructors have
 also had a significant influence on how I view instructor-student
-interactions.  When I approached my high school calculus teacher about
+interactions. When I approached my high school calculus teacher about
 taking the course out of sequence without the prerequisite, his
 response was to offer after-hours help and give me the calculus
-textbook to study over the summer.  He emphasized strategy and
-efficient execution over rote memory and brute force.  During my
+textbook to study over the summer. He emphasized strategy and
+efficient execution over rote memory and brute force. During my
 freshman year of college, I failed my first physics midterm miserably.
 When I met with my professor he worked with me to develop an
 extra-curricular study plan, and offered time outside of office hours
-to meet and discuss homework problems.  Both of these instructors met
+to meet and discuss homework problems. Both of these instructors met
 me at my level, provided me with extra resources, and enabled me to
 succeed.
 
@@ -49,7 +56,7 @@ perspective supported by mathematics.  Office hours provided
 one-on-one interactions with students that allow me to refine my
 explanations of concepts that can be reincorporated into recitation
 instruction.  As recitation instructor for "Introduction to Physics
-for Engineers", I plan my lessons to complement lectures.  Students
+for Engineers", I plan my [[file:samps/plug_example.pdf][lessons to complement lectures]].  Students
 approach physics from different levels and backgrounds, and it is
 important for me to adapt to the student in order to enable efficient
 learning.  Some students require individual attention.  Sometimes this
@@ -87,30 +94,29 @@ Therefore, when I make an error on the board that a student catches
 and corrects, he or she receives a reward.
 
 One of the most valuable products of each semester I've taught is the
-student reviews.  They provide an unvarnished assessment of my
-teaching.  I pay careful attention to the written comments and do my
-best to incorporate changes to address them.  One comment I received
+student reviews. They provide an unvarnished assessment of my
+teaching. I pay careful attention to the written comments and do my
+best to incorporate changes to address them. One comment I received
 during my first semester teaching was that I erased the board too
-quickly.  In subsequent semesters I now ask if anyone needs the board
-before erasing.  In my most recent semester teaching, students rated
-my confidence with the material lower than I had hoped.  On
-reflection, I think this was due to my questioning the students if my
-choice of problems were too difficult.  In future semesters I will
-find different ways to assess how the students are handling the
-material.  In future semesters I will solicit feedback midway to
-address problems before finding out about them after the fact.
+quickly. In subsequent semesters I now ask if anyone needs the board
+before erasing. In my most recent semester teaching, students rated my
+confidence with the material lower than I had hoped. On reflection, I
+think this was due to my questioning the students if my choice of
+problems were too difficult. In future semesters I will find different
+ways to assess how the students are handling the material. In future
+semesters I will solicit feedback midway to address problems before
+finding out about them after the fact.
 
 I have just begun my teaching career and the experiences I have had so
-far have been formative.  One of the best moments I had as a
-recitation instructor was when one of my students finally understood
-how static and kinetic friction are related to the normal force
-applied to an object.  This "A-Hah!" moment when a student makes the
-transition from confusion to understanding is why I teach.  In order
-to develop my ability to facilitate this moment, I am enrolled in the
-Certificate of College Teaching program at Duke.  I am developing my
-teaching skills so that one day I will have the same impact that my
-high school calculus teacher, and my freshman physics teacher had on
-me.
+far have been formative. One of the best moments I had as a recitation
+instructor was when one of my students finally understood how static
+and kinetic friction are related to the normal force applied to an
+object. This "A-Hah!" moment when a student makes the transition from
+confusion to understanding is why I teach. In order to develop my
+ability to facilitate this moment, I am enrolled in the Certificate of
+College Teaching program at Duke. I am developing my teaching skills
+so that one day I will have the same impact that my high school
+calculus teacher, and my freshman physics teacher had on me.
 * Curriculum Vitae
 - Address ::
 #+BEGIN_VERSE
@@ -196,13 +202,3 @@ estimate paddock grazing capacity in Northern US prairie, April 2009,
 - CERN Masterclass March 2013 and 2014
 - USATLAS trip to Washington DC to raise awareness of HEP research,
   March 2013
-** Software Projects
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Hitchhiker's Guide to High Energy Physics]] - Documentation and
-  Example code for new students
-- [[https://github.com/dbjergaard/rivet-charmonium][Rivet Charmonium Studies]] - Rivet is a software framework for
-  studying Monte Carlo generators, this is code for creating plots of
-  substructure variables in charmonium events.
-- [[https://github.com/dbjergaard/rivet-jet-charge][Rivet Jet Charge Studies]] - Rivet code for BOOST 2012 analysis,
-  (including Condor steering infrastructure)
-- [[https://github.com/stumpwm/stumpwm][Stump Window Manager]] - Maintainer/Developer, A window manager
-  written in Common Lisp   
