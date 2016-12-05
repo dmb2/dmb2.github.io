@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Customizing Emacs's modeline</title>
-<!-- 04/01/2016 -->
+<!-- 12/05/2016 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Bjergaard" />
@@ -226,14 +226,14 @@ in your <code>.emacs</code>:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(setq-default mode-line-format
+<pre class="src src-emacs-lisp">(<span style="color: #859900; font-weight: bold;">setq-default</span> mode-line-format
       (list
-       " " mode-line-modified
-       " %[" mode-line-buffer-identification "%] %l %6 "
+       <span style="color: #2aa198;">" "</span> mode-line-modified
+       <span style="color: #2aa198;">" %["</span> mode-line-buffer-identification <span style="color: #2aa198;">"%] %l %6 "</span>
        mode-line-misc-info
        mode-line-end-spaces))
-(setq global-mode-string '((t jabber-activity-mode-string)
-			  "" display-time-string appt-mode-string))
+(<span style="color: #859900; font-weight: bold;">setq</span> global-mode-string '((t jabber-activity-mode-string)
+                          <span style="color: #2aa198;">""</span> display-time-string appt-mode-string))
 </pre>
 </div>
 
