@@ -1,0 +1,21 @@
+#+INCLUDE: frontmatter.org
+* Favorite Physics Problems
+Over the course of my time as a student, private tutor and recitation
+instructor I have discovered a few problems that really pull together
+a series of concepts in a way that integrates the knowledge of physics
+and provides insight into the subject matter.  Linked below are my
+written solutions to these problems and a brief summary of the problem.
+- "[[file:samps/plug_example.pdf][Plug on a cone]]" :: This problem integrates rotational frames,
+     Newton's laws, and friction.  There are multiple paths through
+     the problem, and many ways to check the sensibility of the
+     answers.
+- "[[file:samps/charge_example.pdf][Charge in a conductor]]" :: This problem comes from an upper level
+     Electromagnetism course I wrote solutions for.  It illustrates
+     deep concepts about how charges distribute themselves in a
+     conductor and the consequences of their distribution.  I have had
+     success giving this problem to students that I tutor.
+- "[[file:samps/flux_example.pdf][Flux through a loop]]" :: This is an application of Faraday's law that
+     requires the student to understand the concept of flux as well as
+     how the induced current is related to the changing flux. It
+     requires an integration of geometry, and two disparate concepts,
+     Ohm's law and Faraday's law.

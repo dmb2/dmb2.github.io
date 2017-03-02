@@ -1,0 +1,6 @@
+#+INCLUDE: frontmatter.org
+* Curriculum Vitae
+[[file:curriculum%20vitae.pdf][Download as a PDF]]
+#+BEGIN_HTML
+<iframe src="http://docs.google.com/gview?url=http://dbjergaard.github.com/teaching-portfolio/curriculum%20vitae.pdf&embedded=true" style="width:100%; height:1200px;" frameborder="0"></iframe>
+#+END_HTML
