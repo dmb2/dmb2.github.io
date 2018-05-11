@@ -1,6 +1,7 @@
 #+TITLE: David Bjergaard's Blog
 #+INCLUDE: frontmatter.org
 * Random Ramblings
+- [[file:posts/clx_extensions.org][X11, Common Lisp, CLX and international input]]
 - [[file:posts/emacs-customize-modeline.org][Customizing Emacs's modeline]]
 - [[./posts/matasano_set_1.org][Matasano Crypto Challenges Set 1]]
 - [[./posts/matasano_set_2.org][Matasano Crypto Challenges Set 2]]
