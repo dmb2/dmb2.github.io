@@ -2,7 +2,7 @@
 #+TITLE: About the author
 When I'm not writing opinion pieces for this website, I can be found:
 - Maintaining [[https://github.com/stumpwm/stumpwm][StumpWM]], a tiling window manager written in Common Lisp 
-- Hacking on various personal [[https://github.com/dbjergaard?tab%3Drepositories][software projects]]
+- Hacking on various personal [[https://github.com/dmb2?tab%3Drepositories][software projects]]
 - Extending and Hacking Emacs
 - Reading anything I can get my hands on, recently though:
   - The Baroque Cycle - Neal Stephenson
@@ -29,6 +29,6 @@ good design. To that end I've been significantly influenced by:
 - The Visual Display of Quantitative Information - Edward Tufte
 
 If you want to contact me:
-- Email: [[mailto:dbjergaard@gmail.com][dbjergaard@gmail.com]]
-- Twitter: [[https://twitter.com/dbjergaard][@dbjergaard]]
+- Email: [[mailto:ghio-svc@ccbar.us][ghio-svc@ccbar.us]]
+- Twitter: [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]]
 - Facebook: [[http://www.forbes.com/sites/kashmirhill/2012/08/06/beware-tech-abandoners-people-without-facebook-accounts-are-suspicious/][Not on it]]

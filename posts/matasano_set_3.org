@@ -98,4 +98,4 @@ Looking forward to Set 4, we'll need a lot of code to simulate servers
 in various settings that all do similar things, so having a server
 baseclass is useful. 
 
-If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
+If you have any comments, you can tweet me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].

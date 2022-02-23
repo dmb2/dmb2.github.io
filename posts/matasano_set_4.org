@@ -70,4 +70,4 @@ The key insights in challenge 25 and 27 are the fact that
 
 * Conclusion
 
-If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
+If you have any comments, you can tweet me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].

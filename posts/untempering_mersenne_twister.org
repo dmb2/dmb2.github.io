@@ -176,7 +176,7 @@ In closing, crypto is a lot of fun. The math involved while simple,
 has subtleties that are fun to play around with. I hope that if
 you are also wandering the path towards crypto enlightenment that you
 find this explanation useful.  If you have any comments, you can tweet
-me [[https://twitter.com/dbjergaard][@dbjergaard]].
+me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].
 
 [fn:1] The folks on #cryptopals in freenode have been extraordinarily
 helpful and are always patient with me when I'm trying to figure out

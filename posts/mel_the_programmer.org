@@ -96,7 +96,7 @@ is better to apply this knowledge to a system that everyone will
 benefit from.  Finally, it is important to write clear code that other
 people understand.
 
-If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
+If you have any comments, you can tweet me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].
 
 [fn:1] The closest modern equivalent would be writing the elf by hand
 in Linux, or an executable (.exe) on Windows

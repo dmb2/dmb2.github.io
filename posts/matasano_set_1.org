@@ -19,7 +19,7 @@ Now, anything is allowed. All seven sets (the original six plus a
 bonus set) are published at [[http://cryptopals.com/][cryptopals.com]].  I want to write up my
 impressions, and hints, but I don't want to give away the
 solutions. That being said, my solutions are here:
-[[https://github.com/dbjergaard/cryptopals-solutions][github.com/cryptopals-solutions]].  Please don't read them until you've
+[[https://github.com/dmb2/cryptopals-solutions][github.com/cryptopals-solutions]].  Please don't read them until you've
 either solved it yourself, or exhausted all help on #cryptopals on
 freenode.
 
@@ -207,4 +207,4 @@ you're qualified to finish all 6 sets.  The later sets will require
 more and more infrastructure to set up the attacks, but in general you
 won't have more moving pieces than Challenge 6. 
 
-If you have any comments, you can tweet me [[https://twitter.com/dbjergaard][@dbjergaard]].
+If you have any comments, you can tweet me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].

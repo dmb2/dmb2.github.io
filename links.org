@@ -5,11 +5,11 @@
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Org-Mode Cook Book]]
 - [[https://github.com/daveliepmann/tufte-css][Tufte CSS]] (This website's css is stolen/based off of it)
 * Software Projects
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Hitchhiker's Guide to High Energy Physics]] - Documentation and
+- [[https://github.com/dmb2/hitchhikers-guide-to-hep][Hitchhiker's Guide to High Energy Physics]] - Documentation and
   Example code for new students
-- [[https://github.com/dbjergaard/rivet-charmonium][Rivet Charmonium Studies]] - Code for creating plots of substructure
+- [[https://github.com/dmb2/rivet-charmonium][Rivet Charmonium Studies]] - Code for creating plots of substructure
   variables in charmonium events using Rivet
-- [[https://github.com/dbjergaard/rivet-jet-charge][Rivet Jet Charge Studies]] - Rivet code for BOOST 2012 analysis,
+- [[https://github.com/dmb2/rivet-jet-charge][Rivet Jet Charge Studies]] - Rivet code for BOOST 2012 analysis,
   (including Condor steering infrastructure)
 - [[https://github.com/stumpwm/stumpwm][Stump Window Manager]] - Maintainer/Developer, A window manager
   written in Common Lisp
