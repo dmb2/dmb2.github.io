@@ -1,6 +1,5 @@
 #+include: frontmatter.org org
 #+TITLE: Matasano Crypto Challenges Set 2
-#+HTML_MATHJAX: align:"left" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
 - Started writing: <2016-02-12 Fri>
 - Posted: <2016-02-12 Fri>
 - Estimated time to read: 8 minutes
@@ -106,3 +105,5 @@ plaintext.  Now that we're all warmed up for Set 3, we should be ready
 to go.
 
 If you have any comments, you can tweet me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].
+
+#+INCLUDE: header/header.org org

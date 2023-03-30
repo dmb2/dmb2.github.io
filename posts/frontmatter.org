@@ -8,4 +8,3 @@
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 
-#+INCLUDE: header/header.org org

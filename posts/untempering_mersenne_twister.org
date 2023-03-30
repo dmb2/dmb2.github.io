@@ -1,6 +1,5 @@
 #+include: frontmatter.org org
 #+TITLE: Untempering the Mersenne Twister RNG
-#+HTML_MATHJAX: align:"center" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
 - Started writing: <2015-08-25 Tue>
 - Posted: <2015-08-26 Wed>
 - Estimated time to read: 15 min
@@ -190,3 +189,5 @@ the final output and are there to improve the statistical properties
 of the random numbers
 [fn:4] Remember, we set $b:=$ =0xFFFFFFFF=, so the bitwise and step
 just "copies" the bits from $x>>a$
+
+#+INCLUDE: header/header.org org

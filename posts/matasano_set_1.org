@@ -1,6 +1,5 @@
 #+include: frontmatter.org org
 #+TITLE: Matasano Crypto Challenges Set 1
-#+HTML_MATHJAX: align:"left" mathml:nil path:"https://cdn.mathjax.org/mathjax/latest/MathJax.js"
 - Started writing: <2016-02-08 Mon>
 - Posted: <2016-02-10 Wed>
 - Estimated time to read: 10 minutes
@@ -208,3 +207,5 @@ more and more infrastructure to set up the attacks, but in general you
 won't have more moving pieces than Challenge 6. 
 
 If you have any comments, you can tweet me [[https://twitter.com/dec4fc0ffee][@dec4fc0ffee]].
+
+#+INCLUDE: header/header.org org

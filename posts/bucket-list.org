@@ -1,5 +1,5 @@
-#+include: frontmatter.org org
 #+TITLE: Programming Bucket List
+#+include: frontmatter.org org
 /Posted <2015-04-16 Thu>/
 
 My programming bucket list.  If I start or finish a project I'll
@@ -18,3 +18,6 @@ update it here.
   - [ ] Set 5
   - [ ] Set 6
 - Write a lisp using [[https://github.com/kanaka/mal/blob/master/process/guide.md][mal]], preferably using nasm 
+
+
+#+INCLUDE: header/header.org org

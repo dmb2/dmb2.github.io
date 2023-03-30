@@ -1,3 +1,0 @@
-|------+-------+---------+-------|
-| [[file:index.org][Home]] | [[file:about.org][About]] | [[file:gallery.org][Gallery]] | [[file:links.org][Links]] |
-|------+-------+---------+-------|
