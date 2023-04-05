@@ -1,9 +1,20 @@
 #+TITLE: A garden of digital delights
 #+INCLUDE: frontmatter.org
 
+
+* Lisp bits
 [[file:posts/clx_extensions.org][X11, Common Lisp, CLX and international input]]
 
 [[file:posts/emacs-customize-modeline.org][Customizing Emacs's modeline]]
+
+[[http://stumpwm.github.io/][StumpWM]]
+
+* Programming (philosophy)
+[[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
+
+[[file:posts/bucket-list.org][Programming Bucket List]]
+
+* Cryptography
 
 [[./posts/matasano_set_1.org][Matasano Crypto Challenges Set 1]]
 
@@ -13,6 +24,8 @@
 
 [[file:posts/untempering_mersenne_twister.org][Untempering the Mersenne Twister]]
 
-[[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
+* Reference
+[[./hitchhikers-guide-to-hep][Hitchhiker's guide to High Energy Physics]]
 
-[[file:posts/bucket-list.org][Programming Bucket List]]
+* =head -c 16 /dev/urandom | xxd= 
+[[./vom][Voice of Music Landing Page]]

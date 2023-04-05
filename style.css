@@ -10,6 +10,10 @@ h6 {
     font-family: 'Josefin Sans',serif;
 }
 
+.title{
+    text-align:left;
+}
+
 a {
     color: #000080;
 }

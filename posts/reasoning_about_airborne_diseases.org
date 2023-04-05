@@ -1,0 +1,27 @@
+#+include: frontmatter.org org
+#+TITLE: Some thoughts on transmission of airborne diseases  
+- Started writing: <2022-01-24 Mon>
+- Posted: 
+- Estimated time to read: 
+
+I would like to banish two words from the lexicon (or at least jail
+them for a few years).  Unprecedented and variant.  The former because
+it has been overused daily for going on three years, and the latter
+because it makes my blood run cold and my stomach queasy when used in
+a headline.  I am writing the following as an exposition of how I
+reason about assessing relative risk of contracting COVID19. This
+seems to be relatively (or completely) overlooked by the risk calculus
+utilized by certain organizations.
+
+I'm going to approach this as a physicist.  In other words, I'm going
+to make gross approximations that get rid of all the nuance and
+difficulty of the real world, but still hold the essence (hopefully)
+of the problem at hand.  In short: I have a solution assuming
+spherical chickens.
+
+What I hope to demonstrate is that safety in a particular space
+depends on the mask worn by sources of the disease (ie those infected
+and spreading), the mask worn by healthy individuals, and most
+importantly the rate of overturn and filtration of air in a space.
+
+#+INCLUDE: header/header.org org
