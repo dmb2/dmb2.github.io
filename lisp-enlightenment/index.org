@@ -1,0 +1,127 @@
+#+include: ../frontmatter.org org
+#+TITLE: On Lisp Enlightenment
+
+Common Lisp is hard to learn and won't turn you into an elite hacker.
+If you are interested in my journey, read on. In college, my research
+advisor used Emacs. Naturally, I was [[https://churchofemacs.org/][indoctrinated into the church]].
+Eventually, I would discover the delightful text manipulation language
+that is Vim. By that point I had been such a heavy user of Emacs, [[https://github.com/emacs-evil/evil][evil]]
+was the only way I could reasonably run Vim.
+
+Emacs, for the uninitiated,[fn:1] is configured in a dialect of Lisp
+called Emacs Lisp. After a few years of copy-pasting spells into my
+=.emacs=, I wanted to be able to develop my own magic. The development
+of any skill begins with research, and ends with practice. I learned
+about [[https://lisp-lang.org/][Common Lisp]], and [[https://www.scheme.org/][Scheme]], and "[[https://web.mit.edu/6.001/6.037/sicp.pdf][The Structure and Interpretation
+of Computer Programs]]" (SICP). I read "[[https://mitpress.mit.edu/9780262560993/the-little-schemer/][The Little Schemer]]".
+
+I desperately wanted the [[https://lispers.org/][Lisp enlightenment]]. A moment when the
+parentheses would fall away and programming would become as effortless
+as thinking. The code and data would merge together and
+[[https://stackoverflow.com/questions/1042066/looking-for-clisp-examples-of-mini-languages-that-is-dsls][domain-specific languages]] would just appear to me and solve the
+problem in front of me.
+
+Here's the thing though, it never came. I tried so hard. At some point
+in my lisp travels I discovered [[http://stumpwm.github.io/][StumpWM]]. A tiling window manager
+written in Common Lisp. Surely, if used this every day I would have to
+learn lisp, and the enlightenment would follow.
+
+I did have some important insights into programming. The exercises in
+SICP truly changed the way I approached coding. Learning about layers
+of abstraction and functions as first-class citizens were revelatory.
+I eventually started maintaining StumpWM as an open-source project. It
+got a new lease on life, and I got an extremely rewarding hobby. I
+didn't (and still don't) write very much lisp for StumpWM[fn:4]. I did
+learn an awful lot about X11 though.
+
+I think the lisp enlightenment is oversold. Common Lisp is a nice
+language, and knowing it (and other dialects) has allowed me to notice
+and appreciate its influences in other languages (notably [[https://mathematica.stackexchange.com/questions/4203/is-there-a-mathematica-lisp-link][Mathematica]]
+and [[https://stackoverflow.com/questions/5030285/is-ecmascript-really-a-dialect-of-lisp][JavaScript]][fn:3]). It has some really uncomfortable gotchas that new
+users immediately cut their fingers on.
+
+The first is which lisp? [[https://www.scheme.org/][Scheme]], [[https://lisp-lang.org/][Common Lisp]], and [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs Lisp]] are just
+a few branches of a very confusing tree. Suppose you settle on Common
+Lisp, now you have to decide on which implementation. Do you choose
+[[https://ccl.clozure.com/][Clozure Common Lisp]]? [[http://www.sbcl.org/][Steel Bank Common Lisp]]? [[https://cmucl.org/][CMUCL]], [[https://www.gnu.org/software/gcl/][GCL]], [[https://franz.com/products/allegrocl/][ACL]]?
+
+Let's assume the intrepid lisp hacker (ILH) installs SBCL, when you
+invoke it on the command line you are greeted with:
+#+begin_example
+
+This is SBCL 2.1.11.debian, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+*
+#+end_example
+
+This interface is next to useless, there's no readline support, no
+ability to move through the history, and no easy way to edit lisp
+forms. Our ILH needs to embed their lisp implementation in an
+environment (Emacs is the only real game in town, sorry vim users!).
+
+Let's assume our ILH is undeterred and manages to get a viable
+environment set up. Maybe they even discover [[https://www.quicklisp.org/beta/][Quicklisp]] and a decent
+language tutorial. They start writing a non-trivial program and are
+beginning to get confident with all the parentheses. Inevitably they
+will write something like this:
+#+begin_src emacs-lisp
+  (if (= i 10)
+      (print "i is 10!")
+      (* i 2)
+      (+ i 3))
+#+end_src
+
+Assuming that =i= is 10, users of other languages may assume that it
+will print "i is 10!" and =i= will have the value 23 when this is all
+done. In fact, this will signal an error because =if= only takes three
+expressions, the condition, and two expressions for true or false
+cases.
+
+Our ILH will discover that when no 'else' is needed they should use
+=when= and =unless=. Someday they'll need an honest =if= clause, but
+they'll need multiple sub-expressions and they'll discover =progn=:
+#+begin_src lisp
+  (if (= i 10)
+      (progn (print "i is 10!")
+	     (* i 2))
+      (+ i 3))
+#+end_src
+But =progn= isn't "Lispy", to be idiomatic they should use =cond=.
+
+Our ILH continues their journey, and since Lisp goes way back, they
+have to learn the difference between =car= and =cdr=. In the same
+breath that they learn this, they also learn that the modern
+equivalents =first= and =rest= are preferred. Culturally, everyone
+still uses =car= and =cdr=.
+
+This is just a small slice of the friction that comes up when getting
+started with developing in Common Lisp. I'm not even touching =asdf=,
+package management, and compilation. Developing in Lisp comes with
+significant upfront costs to get started.
+
+If you're getting started in Common Lisp, be patient. At some point,
+all of the quirks and idiosyncrasies will feel normal[fn:2]. If you
+have started exploring Lisp to level up your programming skills, read
+SICP and do the exercises. If you are interested in Lisp for its
+[[https://en.wikipedia.org/wiki/Homoiconicity][homoiconicity]], or [[https://docs.racket-lang.org/htdp-langs/index.html][language design]], learn racket and implement '[[https://github.com/kanaka/mal][make a
+lisp]]' in your favorite language. If you want a weird, crufty, window
+managing experience, come try StumpWM!
+
+* Footnotes
+
+[fn:4] This is a topic for another post. It has been one of the most
+rewarding, and frustrating, experiences that I've had.
+
+[fn:3] Incidentally, [[https://mitpress.mit.edu/9780262543231/structure-and-interpretation-of-computer-programs/][SICP was re-released recently with JavaScript]] as
+its main language.  I think it this was the right move, and have found
+JavaScript delightful to develop.
+
+[fn:2] I got burned hard by the =if= example and it was hard to write
+today without it feeling very wrong.
+
+[fn:1] If you're reading this... you are probably initiated.  

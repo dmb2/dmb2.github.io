@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 04/08/2023 -->
+<!-- 05/26/2023 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Programming Bucket List</title>
+<title>On Lisp Enlightenment</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="David Bjergaard" />
 <style type="text/css">
@@ -243,48 +243,180 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Programming Bucket List</h1>
+<h1 class="title">On Lisp Enlightenment</h1>
 <div class="org">
 
 </div>
 <p>
-<i>Posted <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-16 Thu&gt;</span></span></i>
+Common Lisp is hard to learn and won't turn you into an elite hacker.
+If you are interested in my journey, read on. In college, my research
+advisor used Emacs. Naturally, I was <a href="https://churchofemacs.org/">indoctrinated into the church</a>.
+Eventually, I would discover the delightful text manipulation language
+that is Vim. By that point I had been such a heavy user of Emacs, <a href="https://github.com/emacs-evil/evil">evil</a>
+was the only way I could reasonably run Vim.
 </p>
 
 <p>
-My programming bucket list.  If I start or finish a project I'll
-update it here.
+Emacs, for the uninitiated,<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> is configured in a dialect of Lisp
+called Emacs Lisp. After a few years of copy-pasting spells into my
+<code>.emacs</code>, I wanted to be able to develop my own magic. The development
+of any skill begins with research, and ends with practice. I learned
+about <a href="https://lisp-lang.org/">Common Lisp</a>, and <a href="https://www.scheme.org/">Scheme</a>, and "<a href="https://web.mit.edu/6.001/6.037/sicp.pdf">The Structure and Interpretation
+of Computer Programs</a>" (SICP). I read "<a href="https://mitpress.mit.edu/9780262560993/the-little-schemer/">The Little Schemer</a>".
 </p>
-<div id="outline-container-org31b66d2" class="outline-2">
-<h2 id="org31b66d2">Bucket List</h2>
-<div class="outline-text-2" id="text-org31b66d2">
-<ul class="org-ul">
-<li>Write a terminal emulator (in lisp preferably)</li>
-<li>Write a ray-tracer</li>
-<li>Simulate water in a glass/tank (bonus points if I use the ray tracer
-above)</li>
-<li>Write/Submit code to the IOCCC (even if they stop doing them :))</li>
-<li>Finish the Matasano cryptopals exercises <code>[4/6]</code>
-<ul class="org-ul">
-<li class="on"><code>[X]</code> Set 1</li>
-<li class="on"><code>[X]</code> Set 2</li>
-<li class="on"><code>[X]</code> Set 3</li>
-<li class="on"><code>[X]</code> Set 4</li>
-<li class="off"><code>[&#xa0;]</code> Set 5</li>
-<li class="off"><code>[&#xa0;]</code> Set 6</li>
-</ul></li>
-<li>Write a lisp using <a href="https://github.com/kanaka/mal/blob/master/process/guide.md">mal</a>, preferably using nasm</li>
-</ul>
 
-
-<div class="org">
 <p>
-<a href="../index.html">Home</a>
+I desperately wanted the <a href="https://lispers.org/">Lisp enlightenment</a>. A moment when the
+parentheses would fall away and programming would become as effortless
+as thinking. The code and data would merge together and
+<a href="https://stackoverflow.com/questions/1042066/looking-for-clisp-examples-of-mini-languages-that-is-dsls">domain-specific languages</a> would just appear to me and solve the
+problem in front of me.
 </p>
 
+<p>
+Here's the thing though, it never came. I tried so hard. At some point
+in my lisp travels I discovered <a href="http://stumpwm.github.io/">StumpWM</a>. A tiling window manager
+written in Common Lisp. Surely, if used this every day I would have to
+learn lisp, and the enlightenment would follow.
+</p>
+
+<p>
+I did have some important insights into programming. The exercises in
+SICP truly changed the way I approached coding. Learning about layers
+of abstraction and functions as first-class citizens were revelatory.
+I eventually started maintaining StumpWM as an open-source project. It
+got a new lease on life, and I got an extremely rewarding hobby. I
+didn't (and still don't) write very much lisp for StumpWM<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>. I did
+learn an awful lot about X11 though.
+</p>
+
+<p>
+I think the lisp enlightenment is oversold. Common Lisp is a nice
+language, and knowing it (and other dialects) has allowed me to notice
+and appreciate its influences in other languages (notably <a href="https://mathematica.stackexchange.com/questions/4203/is-there-a-mathematica-lisp-link">Mathematica</a>
+and <a href="https://stackoverflow.com/questions/5030285/is-ecmascript-really-a-dialect-of-lisp">JavaScript</a><sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>). It has some really uncomfortable gotchas that new
+users immediately cut their fingers on.
+</p>
+
+<p>
+The first is which lisp? <a href="https://www.scheme.org/">Scheme</a>, <a href="https://lisp-lang.org/">Common Lisp</a>, and <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html">Emacs Lisp</a> are just
+a few branches of a very confusing tree. Suppose you settle on Common
+Lisp, now you have to decide on which implementation. Do you choose
+<a href="https://ccl.clozure.com/">Clozure Common Lisp</a>? <a href="http://www.sbcl.org/">Steel Bank Common Lisp</a>? <a href="https://cmucl.org/">CMUCL</a>, <a href="https://www.gnu.org/software/gcl/">GCL</a>, <a href="https://franz.com/products/allegrocl/">ACL</a>?
+</p>
+
+<p>
+Let's assume the intrepid lisp hacker (ILH) installs SBCL, when you
+invoke it on the command line you are greeted with:
+</p>
+<pre class="example">
+
+This is SBCL 2.1.11.debian, an implementation of ANSI Common Lisp.
+More information about SBCL is available at &lt;http://www.sbcl.org/&gt;.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+*
+</pre>
+
+<p>
+This interface is next to useless, there's no readline support, no
+ability to move through the history, and no easy way to edit lisp
+forms. Our ILH needs to embed their lisp implementation in an
+environment (Emacs is the only real game in town, sorry vim users!).
+</p>
+
+<p>
+Let's assume our ILH is undeterred and manages to get a viable
+environment set up. Maybe they even discover <a href="https://www.quicklisp.org/beta/">Quicklisp</a> and a decent
+language tutorial. They start writing a non-trivial program and are
+beginning to get confident with all the parentheses. Inevitably they
+will write something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(if (= i 10)
+    (print "i is 10!")
+    (* i 2)
+    (+ i 3))
+</pre>
 </div>
+
+<p>
+Assuming that <code>i</code> is 10, users of other languages may assume that it
+will print "i is 10!" and <code>i</code> will have the value 23 when this is all
+done. In fact, this will signal an error because <code>if</code> only takes three
+expressions, the condition, and two expressions for true or false
+cases.
+</p>
+
+<p>
+Our ILH will discover that when no 'else' is needed they should use
+<code>when</code> and <code>unless</code>. Someday they'll need an honest <code>if</code> clause, but
+they'll need multiple sub-expressions and they'll discover <code>progn</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(if (= i 10)
+    (progn (print "i is 10!")
+	   (* i 2))
+    (+ i 3))
+</pre>
 </div>
+<p>
+But <code>progn</code> isn't "Lispy", to be idiomatic they should use <code>cond</code>.
+</p>
+
+<p>
+Our ILH continues their journey, and since Lisp goes way back, they
+have to learn the difference between <code>car</code> and <code>cdr</code>. In the same
+breath that they learn this, they also learn that the modern
+equivalents <code>first</code> and <code>rest</code> are preferred. Culturally, everyone
+still uses <code>car</code> and <code>cdr</code>.
+</p>
+
+<p>
+This is just a small slice of the friction that comes up when getting
+started with developing in Common Lisp. I'm not even touching <code>asdf</code>,
+package management, and compilation. Developing in Lisp comes with
+significant upfront costs to get started.
+</p>
+
+<p>
+If you're getting started in Common Lisp, be patient. At some point,
+all of the quirks and idiosyncrasies will feel normal<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>. If you
+have started exploring Lisp to level up your programming skills, read
+SICP and do the exercises. If you are interested in Lisp for its
+<a href="https://en.wikipedia.org/wiki/Homoiconicity">homoiconicity</a>, or <a href="https://docs.racket-lang.org/htdp-langs/index.html">language design</a>, learn racket and implement '<a href="https://github.com/kanaka/mal">make a
+lisp</a>' in your favorite language. If you want a weird, crufty, window
+managing experience, come try StumpWM!
+</p>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+If you're reading this&#x2026; you are probably initiated.  
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+This is a topic for another post. It has been one of the most
+rewarding, and frustrating, experiences that I've had.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+Incidentally, <a href="https://mitpress.mit.edu/9780262543231/structure-and-interpretation-of-computer-programs/">SICP was re-released recently with JavaScript</a> as
+its main language.  I think it this was the right move, and have found
+JavaScript delightful to develop.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+I got burned hard by the <code>if</code> example and it was hard to write
+today without it feeling very wrong.
+</p></div></div>
+
+
 </div>
-</div>
+</div></div>
 </body>
 </html>

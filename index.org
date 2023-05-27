@@ -10,6 +10,8 @@
 [[http://stumpwm.github.io/][StumpWM]]
 
 * Programming (philosophy)
+[[./lisp-enlightenment/][On Lisp Enlightenment]]
+
 [[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
 
 [[file:posts/bucket-list.org][Programming Bucket List]]
@@ -29,3 +31,5 @@
 
 * =head -c 16 /dev/urandom | xxd= 
 [[./vom][Voice of Music Landing Page]]
+
+[[./life][Conway's Game of Life in D3js]]
