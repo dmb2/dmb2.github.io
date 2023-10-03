@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 03/29/2023 -->
+<!-- 05/29/2023 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reaction to "The Story of Mel"</title>
@@ -252,61 +252,94 @@ for the JavaScript code in this tag.
 <li>Posted: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-21 Fri&gt;</span></span></li>
 <li>Estimated time to read: 5 min</li>
 </ul>
+<div id="outline-container-orge5d0fce" class="outline-2">
+<h2 id="orge5d0fce">Update (2023)</h2>
+<div class="outline-text-2" id="text-orge5d0fce">
+<p>
+I'm not sure I agree with my central thesis, that Mel's incredible
+hacks should've been applied to compiler optimizations for everyone's
+benefit. What's changed since 2015? I've had a lot more experience
+writing high performance code. I've also written enough code for
+specific problems where the specificity of the problem requires custom
+solutions that don't generalize.  
+</p>
 
+<p>
+I also advocated clear code over documentation. Nearly an additional
+decade of software development in projects of varying scales has
+taught me that what is clear to the author of the code is very
+unlikely clear to the next person that comes along to maintain/fix
+bugs. I think that writing evergreen documentation is a much better
+approach. Internal interfaces will change over time. Internal
+documentation should focus on big picture concepts: the fundamental
+algorithms and data structures used to solve the problem. Public APIs,
+once stable, should be well documented. 
+</p>
+
+<p>
+Who knows how I feel about this article in another seven or eight
+years. I will update this article when that happens.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org177c106" class="outline-2">
+<h2 id="org177c106">Original</h2>
+<div class="outline-text-2" id="text-org177c106">
 <p>
 For the uninitiated "<a href="https://www.cs.utah.edu/~elb/folklore/mel.html">The Story of Mel</a>" is a free verse poem (usenet,
 hacking). It describes a programmer so in tune with the hardware he
-programs for that he writes directly in machine code.  No compiler
-necessary, language, what language? Just Op codes and registers.  I
+programs for that he writes directly in machine code. No compiler
+necessary, language, what language? Just Op codes and registers. I
 recently became acquainted with this piece of usenet folklore in a
-blog <a href="http://jamesseibel.com/blog/?p%3D109">explaining how Mel pulled off his feats of grandeur</a>.  I would
-like to highlight some issues with venerating programmers like Mel's
+blog <a href="http://jamesseibel.com/blog/?p%3D109">explaining how Mel pulled off his feats of grandeur</a>. I would like
+to highlight some issues with venerating programmers like Mel's
 method. I will also discuss what lessons I think that Mel's story can
 teach us today.
 </p>
 
 <p>
 To be clear, Mel approached programming not as an exercise in the
-abstract, but as an engineering task.  The way that the term "software
-engineer" conjures images of men with true grit. These engineers compose electrons to
-build virtual bridges or skyscrapers. They take their lunch casually
-1500ft from certain death.  Mel wasn't programming so much as he was
-configuring a machine of infinite possibility. Mel's program played blackjack with
-potential customers.
+abstract, but as an engineering task. The way that the term "software
+engineer" conjures images of men with true grit. These engineers
+compose electrons to build virtual bridges or skyscrapers. They take
+their lunch casually 1500ft from certain death. Mel wasn't programming
+so much as he was configuring a machine of infinite possibility. Mel's
+program played blackjack with potential customers.
 </p>
 
 <p>
 While there is no hard evidence, it is likely that Mel is Mel Kaye. He
 wrote a <a href="https://en.wikipedia.org/wiki/LGP-30">compiler for the LGP-30</a>. For the purposes of this article I'm
-going focus on Mel's method (writing in hex).  Mel's method makes it
+going focus on Mel's method (writing in hex). Mel's method makes it
 impossible for another programmer to pick up and immediately
-understand.  Other RPC-4000 programmers were capable of dissecting his
+understand. Other RPC-4000 programmers were capable of dissecting his
 code to understand his meaning, but not without significant effort. In
-writing in the raw hexadecimal<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> Mel obfuscates his meaning.  The
+writing in the raw hexadecimal<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> Mel obfuscates his meaning. The
 human element is completely removed from his task.
 </p>
 
 <p>
 Computer programs are expressions of ideas first, and produce results
-when run on machines second.  If this order is confused, or the first
-part ignored, the whole enterprise falls apart.  Indeed, when Ed
-Nather is tasked with finding a bug in Mel's program it takes him
-weeks to dissect what is happening. He gives up after
-finally grokking a non-infinite infinite loop.  
+when run on machines second. If this order is confused, or the first
+part ignored, the whole enterprise falls apart. Indeed, when Ed Nather
+is tasked with finding a bug in Mel's program it takes him weeks to
+dissect what is happening. He gives up after finally grokking a
+non-infinite infinite loop.
 </p>
 
 <p>
 At this point, some audience members may be thinking "uh oh I know
-where he's going." The rest of the discussion will be
-about the importance of writing and maintaining documentation.  I want
-to argue the opposite. Good documentation is very important. When
-it comes to writing code that humans can read, documentation should
-take a back seat to clear code.
+where he's going." The rest of the discussion will be about the
+importance of writing and maintaining documentation. I want to argue
+the opposite. Good documentation is very important. When it comes to
+writing code that humans can read, documentation should take a back
+seat to clear code.
 </p>
 
 <p>
 What do I mean by clear code? I mean approaching the problem the way
-one approaches writing literature.  After all, computer programs are
+one approaches writing literature. After all, computer programs are
 first ways to communicate ideas, and second something a machine
 understands<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>. If we take this attitude when writing code then
 becomes an exercise in editing.
@@ -315,10 +348,10 @@ becomes an exercise in editing.
 <p>
 Taking this perspective, instead of the success condition being "it
 does what I want" and "if it ain't broke don't fix it," there is a
-framework for development.  The idea is to approach code the way you
+framework for development. The idea is to approach code the way you
 approach literature. Your first draft is getting your ideas on the
 page. Editing from the first draft replaces "once it works I'm done."
-You would never publish the first draft of anything.  In the same way
+You would never publish the first draft of anything. In the same way
 that you should never publish the first working version of a program.
 In the parlance of test driven design, this is the refactor of "<a href="http://www.jamesshore.com/Blog/Red-Green-Refactor.html">Red,
 Green, Refactor</a>".
@@ -326,19 +359,19 @@ Green, Refactor</a>".
 
 <p>
 So how does Mel fit into this perspective? Mel understood the machine
-he was writing code for inside out.  This should not
-be abandoned completely at the cost of making computer code
-understandable by humans. It is where and how Mel's tricks should be
-used that make the difference.  
+he was writing code for inside out. This should not be abandoned
+completely at the cost of making computer code understandable by
+humans. It is where and how Mel's tricks should be used that make the
+difference.
 </p>
 
 <p>
 One of the amazing things about a computer is how it is suited for
-layers of abstraction.  One can follow these layers up and down. At
-one level you can reason about problems in number theory. At another
-you can look at how the silicone is laid out to allow a particular
+layers of abstraction. One can follow these layers up and down. At one
+level you can reason about problems in number theory. At another you
+can look at how the silicone is laid out to allow a particular
 junction to work. A programmer like Mel would be able to take
-advantage of the system's quirks in the compiler.  Everyone would
+advantage of the system's quirks in the compiler. Everyone would
 benefit from Mel's low level understanding of the system.
 </p>
 
@@ -346,30 +379,32 @@ benefit from Mel's low level understanding of the system.
 For example, Mel exploited the time it took for the drum memory to
 rotate to avoid a time-delay loop when interfacing with the
 <a href="https://en.wikipedia.org/wiki/Friden_Flexowriter">Flexowriter</a>. He could orchestrate things so that the minimum amount of
-time was used waiting for the Flexowriter.  This is a clever
+time was used waiting for the Flexowriter. This is a clever
 optimization. If Mel had been able to incorporate it as an
 optimization for the Fortran compiler, everyone would have benefit
-from this trick.  This would allow everyone coding on the RPC-4000 to
+from this trick. This would allow everyone coding on the RPC-4000 to
 enjoy faster programs. Programmers wouldn't worry about the
 intricacies of drum memory. Instead, Mel wrote these optimization
 tricks directly into his code. It always outperformed the equivalent
-Fortran compiler, and impressed potential clients.  This was the clear
+Fortran compiler, and impressed potential clients. This was the clear
 win for the company that justified Mel's unorthodox approach to
 programming.
 </p>
 
 <p>
 What have we learned from analyzing this piece of Usenet lore? Knowing
-the computer inside out from top to bottom is valuable.  This
-knowledge can be used to make computers run programs really fast.  It
-is better to apply this knowledge to a system that everyone will
-benefit from.  Finally, it is important to write clear code that other
-people understand.
+the computer inside out from top to bottom is valuable. This knowledge
+can be used to make computers run programs really fast. It is better
+to apply this knowledge to a system that everyone will benefit from.
+Finally, it is important to write clear code that other people
+understand.
 </p>
 
 <p>
 If you have any comments, you can tweet me <a href="https://twitter.com/dec4fc0ffee">@dec4fc0ffee</a>.
 </p>
+</div>
+</div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">

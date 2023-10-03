@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 05/29/2023 -->
+<!-- 04/11/2023 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A garden of digital delights</title>
+<title>John Conway's game of life</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="David Bjergaard" />
 <style type="text/css">
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="../style.css" />
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -243,85 +244,50 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">A garden of digital delights</h1>
+<h1 class="title">John Conway's game of life</h1>
+<div class="org">
 
-
-<div id="outline-container-org8e0fedd" class="outline-2">
-<h2 id="org8e0fedd">Lisp bits</h2>
-<div class="outline-text-2" id="text-org8e0fedd">
+</div>
+<div id="outline-container-org4797ed9" class="outline-2">
+<h2 id="org4797ed9">Introduction</h2>
+<div class="outline-text-2" id="text-org4797ed9">
 <p>
-<a href="posts/clx_extensions.html">X11, Common Lisp, CLX and international input</a>
+I've always wanted to write an implementation of John Conway's game of
+life, but I never had a good graphical toolkit that I was excited
+about.  I've always felt like HTML+SVG was a little bit of a cop-out,
+but since learning D3js, I'm an absolute convert.
 </p>
 
 <p>
-<a href="posts/emacs-customize-modeline.html">Customizing Emacs's modeline</a>
-</p>
-
-<p>
-<a href="http://stumpwm.github.io/">StumpWM</a>
+I'll hack on this a bit and then explain it&#x2026; 
 </p>
 </div>
 </div>
-
-<div id="outline-container-org469e49b" class="outline-2">
-<h2 id="org469e49b">Programming (philosophy)</h2>
-<div class="outline-text-2" id="text-org469e49b">
+<div id="outline-container-orga760537" class="outline-2">
+<h2 id="orga760537">The Rules</h2>
+<div class="outline-text-2" id="text-orga760537">
 <p>
-<a href="./lisp-enlightenment/">On Lisp Enlightenment</a>
+The "universe" is a two dimensional grid of square cells. A cell has
+two states, alive or dead. The universe evolves from an initial
+configuration of alive cells.  The rules for transitioning from one
+state to another are:
 </p>
+<ol class="org-ol">
+<li>If a cell is alive with less than two neighbors it dies.</li>
+<li>Live cells with two or three live neighbors lives.</li>
+<li>Live cells with more than three neighbors dies.</li>
+<li>A dead cell with exactly three live neighbors becomes live.</li>
+</ol>
 
-<p>
-<a href="posts/mel_the_programmer.html">Reaction to "The Story of Mel" (Updated 2023)</a>
-</p>
-
-<p>
-<a href="posts/bucket-list.html">Programming Bucket List</a>
-</p>
+<svg id="life-canvas" width=600 height=400> </svg>
 </div>
 </div>
-
-<div id="outline-container-orgae6659a" class="outline-2">
-<h2 id="orgae6659a">Cryptography</h2>
-<div class="outline-text-2" id="text-orgae6659a">
-<p>
-<a href="./posts/matasano_set_1.html">Matasano Crypto Challenges Set 1</a>
-</p>
-
-<p>
-<a href="./posts/matasano_set_2.html">Matasano Crypto Challenges Set 2</a>
-</p>
-
-<p>
-<a href="./posts/matasano_set_3.html">Matasano Crypto Challenges Set 3</a>
-</p>
-
-<p>
-<a href="posts/untempering_mersenne_twister.html">Untempering the Mersenne Twister</a>
-</p>
 </div>
-</div>
-
-<div id="outline-container-org6848822" class="outline-2">
-<h2 id="org6848822">Reference</h2>
-<div class="outline-text-2" id="text-org6848822">
-<p>
-<a href="./hitchhikers-guide-to-hep">Hitchhiker's guide to High Energy Physics</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orga430a3c" class="outline-2">
-<h2 id="orga430a3c"><code>head -c 16 /dev/urandom | xxd</code></h2>
-<div class="outline-text-2" id="text-orga430a3c">
-<p>
-<a href="./vom">Voice of Music Landing Page</a>
-</p>
-
-<p>
-<a href="./life">Conway's Game of Life in D3js</a>
-</p>
-</div>
-</div>
+<div id="postamble" class="status">
+<p class="author">Author: David Bjergaard (<a href="mailto:ghio-svc@ccbar.us">ghio-svc@ccbar.us</a>)</p>
+<p class="date">Date: </p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

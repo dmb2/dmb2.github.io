@@ -1,0 +1,26 @@
+#+include: ../frontmatter.org org
+#+TITLE: John Conway's game of life
+#+HTML_HEAD_EXTRA: <script src="https://d3js.org/d3.v7.min.js"></script>
+#+HTML_HEAD_EXTRA: <script src="./life.js"></script>
+
+* Introduction
+I've always wanted to write an implementation of John Conway's game of
+life, but I never had a good graphical toolkit that I was excited
+about.  I've always felt like HTML+SVG was a little bit of a cop-out,
+but since learning D3js, I'm an absolute convert.
+
+I'll hack on this a bit and then explain it... 
+* The Rules
+The "universe" is a two dimensional grid of square cells. A cell has
+two states, alive or dead. The universe evolves from an initial
+configuration of alive cells.  The rules for transitioning from one
+state to another are:
+1. If a cell is alive with less than two neighbors it dies.
+2. Live cells with two or three live neighbors lives.
+3. Live cells with more than three neighbors dies.
+4. A dead cell with exactly three live neighbors becomes live.
+
+#+begin_export html
+<svg id="life-canvas" width=600 height=400> </svg>
+<script> lifeSvg("#life-canvas"); </script>
+#+end_export

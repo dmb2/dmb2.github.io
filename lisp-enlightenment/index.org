@@ -22,30 +22,30 @@ as thinking. The code and data would merge together and
 problem in front of me.
 
 Here's the thing though, it never came. I tried so hard. At some point
-in my lisp travels I discovered [[http://stumpwm.github.io/][StumpWM]]. A tiling window manager
+in my Lisp travels I discovered [[http://stumpwm.github.io/][StumpWM]]. A tiling window manager
 written in Common Lisp. Surely, if used this every day I would have to
-learn lisp, and the enlightenment would follow.
+learn Lisp, and the enlightenment would follow.
 
 I did have some important insights into programming. The exercises in
 SICP truly changed the way I approached coding. Learning about layers
 of abstraction and functions as first-class citizens were revelatory.
 I eventually started maintaining StumpWM as an open-source project. It
 got a new lease on life, and I got an extremely rewarding hobby. I
-didn't (and still don't) write very much lisp for StumpWM[fn:4]. I did
+didn't (and still don't) write very much Lisp for StumpWM[fn:4]. I did
 learn an awful lot about X11 though.
 
-I think the lisp enlightenment is oversold. Common Lisp is a nice
+I think the Lisp enlightenment is oversold. Common Lisp is a nice
 language, and knowing it (and other dialects) has allowed me to notice
 and appreciate its influences in other languages (notably [[https://mathematica.stackexchange.com/questions/4203/is-there-a-mathematica-lisp-link][Mathematica]]
 and [[https://stackoverflow.com/questions/5030285/is-ecmascript-really-a-dialect-of-lisp][JavaScript]][fn:3]). It has some really uncomfortable gotchas that new
 users immediately cut their fingers on.
 
-The first is which lisp? [[https://www.scheme.org/][Scheme]], [[https://lisp-lang.org/][Common Lisp]], and [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs Lisp]] are just
+The first is which Lisp? [[https://www.scheme.org/][Scheme]], [[https://lisp-lang.org/][Common Lisp]], and [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs Lisp]] are just
 a few branches of a very confusing tree. Suppose you settle on Common
 Lisp, now you have to decide on which implementation. Do you choose
 [[https://ccl.clozure.com/][Clozure Common Lisp]]? [[http://www.sbcl.org/][Steel Bank Common Lisp]]? [[https://cmucl.org/][CMUCL]], [[https://www.gnu.org/software/gcl/][GCL]], [[https://franz.com/products/allegrocl/][ACL]]?
 
-Let's assume the intrepid lisp hacker (ILH) installs SBCL, when you
+Let's assume the intrepid Lisp hacker (ILH) installs SBCL, when you
 invoke it on the command line you are greeted with:
 #+begin_example
 
@@ -60,8 +60,8 @@ distribution for more information.
 #+end_example
 
 This interface is next to useless, there's no readline support, no
-ability to move through the history, and no easy way to edit lisp
-forms. Our ILH needs to embed their lisp implementation in an
+ability to move through the history, and no easy way to edit Lisp
+forms. Our ILH needs to embed their Lisp implementation in an
 environment (Emacs is the only real game in town, sorry vim users!).
 
 Let's assume our ILH is undeterred and manages to get a viable
@@ -109,7 +109,7 @@ all of the quirks and idiosyncrasies will feel normal[fn:2]. If you
 have started exploring Lisp to level up your programming skills, read
 SICP and do the exercises. If you are interested in Lisp for its
 [[https://en.wikipedia.org/wiki/Homoiconicity][homoiconicity]], or [[https://docs.racket-lang.org/htdp-langs/index.html][language design]], learn racket and implement '[[https://github.com/kanaka/mal][make a
-lisp]]' in your favorite language. If you want a weird, crufty, window
+Lisp]]' in your favorite language. If you want a weird, crufty, window
 managing experience, come try StumpWM!
 
 * Footnotes

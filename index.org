@@ -12,7 +12,7 @@
 * Programming (philosophy)
 [[./lisp-enlightenment/][On Lisp Enlightenment]]
 
-[[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel"]]
+[[file:posts/mel_the_programmer.org][Reaction to "The Story of Mel" (Updated 2023)]]
 
 [[file:posts/bucket-list.org][Programming Bucket List]]
 
